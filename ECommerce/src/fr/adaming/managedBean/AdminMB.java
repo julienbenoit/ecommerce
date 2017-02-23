@@ -45,7 +45,7 @@ public class AdminMB implements Serializable{
 	
 //------Methodes admin-----
 	public String ajouter(){
-		adminService.ajouterAdminService(this.admin);
+		adminService.ajouterAdminTestService(this.admin);
 		return "succes";
 		
 	}

@@ -14,7 +14,7 @@ public interface IAdminService {
 	 * @param p
 	 */
 
-	public void ajouterAdminService(Admin a);
+	public void ajouterAdminService(Produit p);
 	
 	/**
 	 * This method delete the product from the table product
@@ -39,8 +39,8 @@ public interface IAdminService {
 	public List<Produit> consulterAdminService();
 
 	
-	
-	
+	//Methode test
+	public void ajouterAdminTestService(Admin a);
 	
 
 }

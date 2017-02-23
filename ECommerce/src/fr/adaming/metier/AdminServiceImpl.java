@@ -18,8 +18,14 @@ public class AdminServiceImpl implements IAdminService{
 	IAdminDao adminDao;
 
 	@Override
-	public void ajouterAdminService(Admin a) {
+	public void ajouterAdminTestService(Admin a) {
 		adminDao.ajouterAdminDao(a);
+		
+	}
+	
+	@Override
+	public void ajouterAdminService(Produit p) {
+		// TODO Auto-generated method stub
 		
 	}
 
@@ -40,6 +46,8 @@ public class AdminServiceImpl implements IAdminService{
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+
 
 	
 
