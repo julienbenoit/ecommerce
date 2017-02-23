@@ -1,5 +1,10 @@
 package fr.adaming.metier;
 
+import java.util.List;
+
+import fr.adaming.entities.Categorie;
+import fr.adaming.entities.Produit;
+
 public interface IClientService {
 	public void ajouterClientService(Produit p);
 	public void supprimerClientService(Produit p);

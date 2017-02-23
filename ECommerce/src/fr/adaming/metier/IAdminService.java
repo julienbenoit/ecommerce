@@ -1,5 +1,9 @@
 package fr.adaming.metier;
 
+import java.util.List;
+
+import fr.adaming.entities.Produit;
+
 public interface IAdminService {
 
 	public void ajouterAdminService(Produit p);
