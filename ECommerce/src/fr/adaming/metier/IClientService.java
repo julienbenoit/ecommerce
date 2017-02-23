@@ -6,6 +6,7 @@ import fr.adaming.entities.Categorie;
 import fr.adaming.entities.Produit;
 
 public interface IClientService {
+	
 	public void ajouterClientService(Produit p);
 	public void supprimerClientService(Produit p);
 	public void mofifierClientService(Produit p);
