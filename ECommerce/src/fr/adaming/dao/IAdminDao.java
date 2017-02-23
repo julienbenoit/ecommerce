@@ -1,7 +1,10 @@
 package fr.adaming.dao;
 
+import javax.ejb.Local;
+
 import fr.adaming.entities.Admin;
 
+@Local
 public interface IAdminDao {
-	public void ajouterAdminService(Admin a);
+	public void ajouterAdminDao(Admin a);
 }
