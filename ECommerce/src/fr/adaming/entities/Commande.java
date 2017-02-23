@@ -16,28 +16,28 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-@Entity
-@Table(name = "commandes")
+//@Entity
+//@Table(name = "commandes")
 public class Commande implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	
 	//===================Attributs propres==============================
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name ="id_commande")
+//	@Id
+//	@GeneratedValue(strategy = GenerationType.IDENTITY)
+//	@Column(name ="id_commande")
 	private int id;
 	private long idCommande;
 	private Date dateCommande;
 	
 	
 	//===================Attributs associés==============================
-	@ManyToOne
-	@JoinColumn(name = "fk_client" , referencedColumnName="id_client")
-	private Client client_associe;
+//	@ManyToOne
+//	@JoinColumn(name = "fk_client" , referencedColumnName="id_client")
+//	private Client client_associe;
 	
-	@OneToMany(mappedBy = "commande_associe", fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
-	private List<LigneCommande> listeLigneCommande;
+//	@OneToMany(mappedBy = "commande_associe", fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
+//	private List<LigneCommande> listeLigneCommande;
 	
 	
 	//===================Constructeurs==============================
@@ -84,13 +84,13 @@ public class Commande implements Serializable{
 	}
 
 	
-	public Client getClient_associe() {
-		return client_associe;
-	}
-
-	public void setClient_associe(Client client_associe) {
-		this.client_associe = client_associe;
-	}
+//	public Client getClient_associe() {
+//		return client_associe;
+//	}
+//
+//	public void setClient_associe(Client client_associe) {
+//		this.client_associe = client_associe;
+//	}
 
 	//===================Redefine toString==============================
 	@Override
