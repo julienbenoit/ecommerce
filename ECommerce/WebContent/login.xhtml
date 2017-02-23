@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>Ma Page de login</title>
+</h:head>
+<h:body>
+
+<h:form>
+<p:breadCrumb>
+    <p:menuitem value="accueil" url="accueil.xhtml" />
+    <p:menuitem value="ajouter un user" url="ajout.xhtml" />
+    <p:menuitem value="modifier un user" url="modif.xhtml" />
+    <p:menuitem value="supprimer un user" url="supprim.xhtml" />
+    <p:menuitem value="rechercher un user" url="getById.xhtml" />
+</p:breadCrumb>
+
+
+			<h:panelGrid columns="3">
+				Nom:
+				<h:inputText id="mail_id" value="#{adminMB.admin.nom}"
+					required="true" label="Mail"></h:inputText>
+				<h:message for="mail_id" style="color:red" />
+
+				Password:
+				<h:inputText id="prenom_id"
+					value="#{adminMB.admin.password}" required="true"
+					label="Password"></h:inputText>
+				<h:message for="prenom_id" style="color:red" />
+			</h:panelGrid>
+			
+			
+			<h:commandButton value="ajouter" action="#{userMB.ajouter}" />
+<p:spacer height="20"/>
+<p:separator/>
+</h:form>
+</h:body>
+</html>
