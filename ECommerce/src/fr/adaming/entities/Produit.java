@@ -1,8 +1,27 @@
 package fr.adaming.entities;
 
-public class Produit {
+import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+
+@Entity
+@Table(name="produits")
+public class Produit implements Serializable{
+	private static final long serialVersionUID = 1L;
+	
 	
 	//===================Attributs propres==============================
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_produit")
 	private int id;
 	private long idProduit;
 	private String designation;
@@ -10,14 +29,22 @@ public class Produit {
 	private double prix;
 	private int quantite;
 	private boolean selectionne;
-	private String photo;
+	
+	
+	//===================Attributs associés==============================
+	@ManyToOne 
+	@JoinColumn(name= "fk_categorie" , referencedColumnName = "id_categorie")
+	private Categorie categorie_associe;
+	
+	
+	
 	
 	//====================Constructeurs==================================
 	public Produit() {
 		super();
 	}
 	public Produit(long idProduit, String designation, String description,
-			double prix, int quantite, boolean selectionne, String photo) {
+			double prix, int quantite, boolean selectionne) {
 		super();
 		this.idProduit = idProduit;
 		this.designation = designation;
@@ -25,7 +52,6 @@ public class Produit {
 		this.prix = prix;
 		this.quantite = quantite;
 		this.selectionne = selectionne;
-		this.photo = photo;
 	}
 	public Produit(int id, long idProduit, String designation,
 			String description, double prix, int quantite, boolean selectionne,
@@ -38,7 +64,6 @@ public class Produit {
 		this.prix = prix;
 		this.quantite = quantite;
 		this.selectionne = selectionne;
-		this.photo = photo;
 	}
 	
 	//====================Accesseurs==================================
@@ -84,11 +109,12 @@ public class Produit {
 	public void setSelectionne(boolean selectionne) {
 		this.selectionne = selectionne;
 	}
-	public String getPhoto() {
-		return photo;
+	
+	public Categorie getCategorie_associe() {
+		return categorie_associe;
 	}
-	public void setPhoto(String photo) {
-		this.photo = photo;
+	public void setCategorie_associe(Categorie categorie_associe) {
+		this.categorie_associe = categorie_associe;
 	}
 	
 	//====================Redefine ToString==============================
@@ -97,7 +123,7 @@ public class Produit {
 		return "Produit [id=" + id + ", idProduit=" + idProduit
 				+ ", designation=" + designation + ", description="
 				+ description + ", prix=" + prix + ", quantite=" + quantite
-				+ ", selectionne=" + selectionne + ", photo=" + photo + "]";
+				+ ", selectionne=" + selectionne+"]";
 	}
 	
 	

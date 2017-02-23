@@ -1,36 +1,58 @@
 package fr.adaming.entities;
 
+import java.io.Serializable;
 import java.util.Arrays;
+import java.util.List;
 
-public class Categorie {
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+
+@Entity
+@Table(name="categories")
+public class Categorie implements Serializable{
+	private static final long serialVersionUID = 1L;
 	
 	//===================Attributs propres==============================
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_categorie")
 	private int id;
 	private long idCategorie;
 	private String nomCategorie;
-	private byte[] photo;
 	private String description;
 	
-	//===================Constructeurs==============================
+	
+	//===================Attributs associés==============================
+	@OneToMany(mappedBy="categorie_associe", fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
+	private List<Produit> listeProduit;
+	
+	
+	
+	//===================Constructeurs==================================
 
 	public Categorie() {
 		super();
 	}
-	public Categorie(long idCategorie, String nomCategorie, byte[] photo,
+	public Categorie(long idCategorie, String nomCategorie,
 			String description) {
 		super();
 		this.idCategorie = idCategorie;
 		this.nomCategorie = nomCategorie;
-		this.photo = photo;
 		this.description = description;
 	}
-	public Categorie(int id, long idCategorie, String nomCategorie,
-			byte[] photo, String description) {
+	public Categorie(int id, long idCategorie, String nomCategorie, String description) {
 		super();
 		this.id = id;
 		this.idCategorie = idCategorie;
 		this.nomCategorie = nomCategorie;
-		this.photo = photo;
 		this.description = description;
 	}
 	
@@ -55,27 +77,26 @@ public class Categorie {
 	public void setNomCategorie(String nomCategorie) {
 		this.nomCategorie = nomCategorie;
 	}
-	public byte[] getPhoto() {
-		return photo;
-	}
-	public void setPhoto(byte[] photo) {
-		this.photo = photo;
-	}
 	public String getDescription() {
 		return description;
 	}
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	
+	public List<Produit> getListeProduit() {
+		return listeProduit;
+	}
+	public void setListeProduit(List<Produit> listeProduit) {
+		this.listeProduit = listeProduit;
+	}
 	
 	//===================Redefine toString==============================
+
 
 	@Override
 	public String toString() {
 		return "Categorie [id=" + id + ", idCategorie=" + idCategorie
-				+ ", nomCategorie=" + nomCategorie + ", photo="
-				+ Arrays.toString(photo) + ", description=" + description + "]";
+				+ ", nomCategorie=" + nomCategorie + ", description=" + description + "]";
 	}
 	
 	
