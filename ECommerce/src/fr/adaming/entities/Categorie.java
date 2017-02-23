@@ -31,8 +31,8 @@ public class Categorie implements Serializable{
 	
 	
 	//===================Attributs associés==============================
-//	@OneToMany(mappedBy="categorie_associe", fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
-//	private List<Produit> listeProduit;
+	@OneToMany(mappedBy="categorie_associe", fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
+	private List<Produit> listeProduit;
 	
 	
 	
@@ -83,12 +83,12 @@ public class Categorie implements Serializable{
 	public void setDescription(String description) {
 		this.description = description;
 	}
-//	public List<Produit> getListeProduit() {
-//		return listeProduit;
-//	}
-//	public void setListeProduit(List<Produit> listeProduit) {
-//		this.listeProduit = listeProduit;
-//	}
+	public List<Produit> getListeProduit() {
+		return listeProduit;
+	}
+	public void setListeProduit(List<Produit> listeProduit) {
+		this.listeProduit = listeProduit;
+	}
 	
 	//===================Redefine toString==============================
 

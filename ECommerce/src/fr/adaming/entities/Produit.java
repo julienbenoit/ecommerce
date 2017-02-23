@@ -36,9 +36,9 @@ public class Produit implements Serializable{
 	
 	
 	//===================Attributs associés==============================
-//	@ManyToOne 
-//	@JoinColumn(name= "fk_categorie" , referencedColumnName = "id_categorie")
-//	private Categorie categorie_associe;
+	@ManyToOne 
+	@JoinColumn(name= "fk_categorie" , referencedColumnName = "id_categorie")
+	private Categorie categorie_associe;
 	
 //	@OneToMany(mappedBy ="produit_associe", fetch =FetchType.EAGER, cascade = {CascadeType.ALL})
 //	private List<LigneCommande> listeLigneCommande;
@@ -115,14 +115,13 @@ public class Produit implements Serializable{
 	public void setSelectionne(boolean selectionne) {
 		this.selectionne = selectionne;
 	}
+	public Categorie getCategorie_associe() {
+		return categorie_associe;
+	}
+	public void setCategorie_associe(Categorie categorie_associe) {
+		this.categorie_associe = categorie_associe;
+	}
 	
-//	public Categorie getCategorie_associe() {
-//		return categorie_associe;
-//	}
-//	public void setCategorie_associe(Categorie categorie_associe) {
-//		this.categorie_associe = categorie_associe;
-//	}
-//	
 	//====================Redefine ToString==============================
 	@Override
 	public String toString() {
