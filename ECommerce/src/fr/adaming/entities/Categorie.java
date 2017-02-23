@@ -15,15 +15,15 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 
-//@Entity
-//@Table(name="categories")
+@Entity
+@Table(name="categories")
 public class Categorie implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	//===================Attributs propres==============================
-//	@Id
-//	@GeneratedValue(strategy = GenerationType.IDENTITY)
-//	@Column(name = "id_categorie")
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_categorie")
 	private int id;
 	private long idCategorie;
 	private String nomCategorie;

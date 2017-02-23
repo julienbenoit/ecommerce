@@ -1,6 +1,7 @@
 package fr.adaming.managedBean;
 
 
+
 import java.io.Serializable;
 
 
@@ -49,4 +50,6 @@ public class AdminMB implements Serializable{
 		
 	}
 }
+
+
 

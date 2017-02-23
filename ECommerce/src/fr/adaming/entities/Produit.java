@@ -16,16 +16,16 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 
-//@Entity
-//@Table(name="produits")
+@Entity
+@Table(name="produits")
 public class Produit implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	
 	//===================Attributs propres==============================
-//	@Id
-//	@GeneratedValue(strategy = GenerationType.IDENTITY)
-//	@Column(name = "id_produit")
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_produit")
 	private int id;
 	private long idProduit;
 	private String designation;

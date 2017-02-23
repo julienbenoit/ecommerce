@@ -13,17 +13,17 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-//@Entity
-//@Table(name = "clients")
+@Entity
+@Table(name = "clients")
 public class Client implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	
 	
 	//===================Attributs propres==============================
-//	@Id
-//	@GeneratedValue(strategy = GenerationType.IDENTITY)
-//	@Column(name ="id_client")
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name ="id_client")
 	private int id;
 	private long idClient;
 	private String nomClient;

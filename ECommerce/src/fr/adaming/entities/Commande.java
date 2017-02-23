@@ -16,16 +16,16 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-//@Entity
-//@Table(name = "commandes")
+@Entity
+@Table(name = "commandes")
 public class Commande implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	
 	//===================Attributs propres==============================
-//	@Id
-//	@GeneratedValue(strategy = GenerationType.IDENTITY)
-//	@Column(name ="id_commande")
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name ="id_commande")
 	private int id;
 	private long idCommande;
 	private Date dateCommande;
