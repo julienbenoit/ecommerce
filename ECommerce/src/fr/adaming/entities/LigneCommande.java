@@ -12,8 +12,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-//@Entity
-//@Table(name="ligneCommandes")
+@Entity
+@Table(name="ligneCommandes")
 public class LigneCommande implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
@@ -21,9 +21,9 @@ public class LigneCommande implements Serializable{
 	
 	
 	//===================Attributs propres==============================
-//	@Id
-//	@GeneratedValue(strategy= GenerationType.IDENTITY )
-//	@Column(name= "id_ligneCommande")
+	@Id
+	@GeneratedValue(strategy= GenerationType.IDENTITY )
+	@Column(name= "id_ligneCommande")
 	private int id;
 	private int quantite;
 	private float prix;
