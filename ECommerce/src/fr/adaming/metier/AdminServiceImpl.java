@@ -8,6 +8,7 @@ import javax.ejb.Stateless;
 
 import fr.adaming.dao.IAdminDao;
 import fr.adaming.entities.Admin;
+import fr.adaming.entities.Produit;
 
 
 @Stateless
@@ -22,23 +23,23 @@ public class AdminServiceImpl implements IAdminService{
 		
 	}
 
-//	@Override
-//	public void supprimerAdminService(Produit p) {
-//		// TODO Auto-generated method stub
-//		
-//	}
-//
-//	@Override
-//	public void mofifierAdminService(Produit p) {
-//		// TODO Auto-generated method stub
-//		
-//	}
-//
-//	@Override
-//	public List<Produit> consulterAdminService() {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
+	@Override
+	public void supprimerAdminService(Produit p) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mofifierAdminService(Produit p) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public List<Produit> consulterAdminService() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 	
 

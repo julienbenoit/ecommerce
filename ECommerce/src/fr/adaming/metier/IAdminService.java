@@ -13,12 +13,7 @@ public interface IAdminService {
 	 * This method add a product to the table product
 	 * @param p
 	 */
-<<<<<<< HEAD
-	public void ajouterAdminService(Admin p);
-//	public void supprimerAdminService(Produit p);
-//	public void mofifierAdminService(Produit p);
-//	public List<Produit> consulterAdminService();
-=======
+
 	public void ajouterAdminService(Admin a);
 	
 	/**
@@ -42,9 +37,7 @@ public interface IAdminService {
 	 * @return List<Categorie> : return the list of all categories objects
 	 */
 	public List<Produit> consulterAdminService();
->>>>>>> branch 'master' of https://github.com/julienbenoit/ecommerce.git
-	
-	
+
 	
 	
 	
