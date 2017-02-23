@@ -11,4 +11,5 @@ public interface IAdminService {
 	public void mofifierAdminService(Produit p);
 	public List<Produit> consulterAdminService();
 	
+	
 }

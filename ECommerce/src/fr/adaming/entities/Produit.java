@@ -1,14 +1,18 @@
 package fr.adaming.entities;
 
 import java.io.Serializable;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 
@@ -26,7 +30,7 @@ public class Produit implements Serializable{
 	private long idProduit;
 	private String designation;
 	private String description;
-	private double prix;
+	private float prix;
 	private int quantite;
 	private boolean selectionne;
 	
@@ -36,6 +40,8 @@ public class Produit implements Serializable{
 	@JoinColumn(name= "fk_categorie" , referencedColumnName = "id_categorie")
 	private Categorie categorie_associe;
 	
+	@OneToMany(mappedBy ="produit_associe", fetch =FetchType.EAGER, cascade = {CascadeType.ALL})
+	private List<LigneCommande> listeLigneCommande;
 	
 	
 	
@@ -44,7 +50,7 @@ public class Produit implements Serializable{
 		super();
 	}
 	public Produit(long idProduit, String designation, String description,
-			double prix, int quantite, boolean selectionne) {
+			float prix, int quantite, boolean selectionne) {
 		super();
 		this.idProduit = idProduit;
 		this.designation = designation;
@@ -54,7 +60,7 @@ public class Produit implements Serializable{
 		this.selectionne = selectionne;
 	}
 	public Produit(int id, long idProduit, String designation,
-			String description, double prix, int quantite, boolean selectionne,
+			String description, float prix, int quantite, boolean selectionne,
 			String photo) {
 		super();
 		this.id = id;
@@ -91,10 +97,10 @@ public class Produit implements Serializable{
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public double getPrix() {
+	public float getPrix() {
 		return prix;
 	}
-	public void setPrix(double prix) {
+	public void setPrix(float prix) {
 		this.prix = prix;
 	}
 	public int getQuantite() {
