@@ -7,14 +7,15 @@
 
 		<!-- Declaration de la DataSource -->
 		<jta-data-source>java:/data_source_ecommerce</jta-data-source>
+		
 
 		<!-- Declaration Des Entities -->
-		<class>fr.adaming.entities.Categorie</class>
-		<class>fr.adaming.entities.Admin</class>
-		<class>fr.adaming.entities.Client</class>
-		<class>fr.adaming.entities.Commande</class>
-		<class>fr.adaming.entities.Produit</class>
-		<class>fr.adaming.entities.LigneCommande</class>
+<!-- 		<class>fr.adaming.entities.Categorie</class> -->
+			<class>fr.adaming.entities.Admin</class>
+<!-- 		<class>fr.adaming.entities.Client</class> -->
+<!-- 		<class>fr.adaming.entities.Commande</class> -->
+<!-- 		<class>fr.adaming.entities.Produit</class> -->
+<!-- 		<class>fr.adaming.entities.LigneCommande</class> -->
 
 
 		<!-- Declaration des props hibernate -->

@@ -12,8 +12,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-@Entity
-@Table(name="ligneCommandes")
+//@Entity
+//@Table(name="ligneCommandes")
 public class LigneCommande implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
@@ -21,22 +21,22 @@ public class LigneCommande implements Serializable{
 	
 	
 	//===================Attributs propres==============================
-	@Id
-	@GeneratedValue(strategy= GenerationType.IDENTITY )
-	@Column(name= "id_ligneCommande")
+//	@Id
+//	@GeneratedValue(strategy= GenerationType.IDENTITY )
+//	@Column(name= "id_ligneCommande")
 	private int id;
 	private int quantite;
 	private float prix;
 
 	
 	//===================Attributs associés==============================
-	@ManyToOne
-	@JoinColumn(name = "fk_ligneCommande", referencedColumnName ="id_ligneCommande")
-	private Produit produit_associe;
+//	@ManyToOne
+//	@JoinColumn(name = "fk_ligneCommande", referencedColumnName ="id_ligneCommande")
+//	private Produit produit_associe;
 	
-	@ManyToOne
-	@JoinColumn(name = "fk_ligneCommande", referencedColumnName ="id_ligneCommande")
-	private Commande commande_associe;
+//	@ManyToOne
+//	@JoinColumn(name = "fk_ligneCommande", referencedColumnName ="id_ligneCommande")
+//	private Commande commande_associe;
 	
 	
 	
@@ -75,12 +75,12 @@ public class LigneCommande implements Serializable{
 		this.prix = prix;
 	}
 
-	public Produit getProduit_associe() {
-		return produit_associe;
-	}
-	public void setProduit_associe(Produit produit_associe) {
-		this.produit_associe = produit_associe;
-	}
+//	public Produit getProduit_associe() {
+//		return produit_associe;
+//	}
+//	public void setProduit_associe(Produit produit_associe) {
+//		this.produit_associe = produit_associe;
+//	}
 	
 	public int getId() {
 		return id;
@@ -90,13 +90,13 @@ public class LigneCommande implements Serializable{
 		this.id = id;
 	}
 
-	public Commande getCommande_associe() {
-		return commande_associe;
-	}
-
-	public void setCommande_associe(Commande commande_associe) {
-		this.commande_associe = commande_associe;
-	}
+//	public Commande getCommande_associe() {
+//		return commande_associe;
+//	}
+//
+//	public void setCommande_associe(Commande commande_associe) {
+//		this.commande_associe = commande_associe;
+//	}
 
 
 	//====================Redefine ToString==============================
