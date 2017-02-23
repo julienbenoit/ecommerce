@@ -9,7 +9,7 @@ import fr.adaming.entities.Produit;
 
 public interface IClientService {
 	/**
-	 * This method add the product to the table product
+	 * This method add the product to the table command
 	 * 
 	 * @param p is an object Produit (long idProduit, String designation, String description,float prix, int quantite, boolean selectionne)
 	 * @return void : this method is an action doesn't return anything
@@ -17,14 +17,14 @@ public interface IClientService {
 	public void ajouterProduitService(Produit p);
 	
 	/**
-	 * This method delete the product from the table product
+	 * This method delete the product from the table command
 	 * @param p is an object Produit (long idProduit, String designation, String description,float prix, int quantite, boolean selectionne)
 	 * @return void : this method is an action doesn't return anything
 	 */
 	public void supprimerProduitService(Produit p);
 	
 	/**
-	 * This method update the product from the table product
+	 * This method update the product from the table command
 	 * @param p is an object Produit (long idProduit, String designation, String description,float prix, int quantite, boolean selectionne)
  	 * @return void : this method is an action doesn't return anything
 	 */

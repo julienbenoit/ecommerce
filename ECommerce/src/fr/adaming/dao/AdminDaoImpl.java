@@ -17,6 +17,7 @@ public class AdminDaoImpl implements IAdminDao {
 			em.persist(a);
 			
 		}
+
 		
 	}
 
