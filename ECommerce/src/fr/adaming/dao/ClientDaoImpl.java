@@ -60,17 +60,17 @@ public class ClientDaoImpl implements IClientDao {
 
 	@Override
 	public void ajouterProduitPanierDao(Produit p, Panier pa) {
-		Panier pa1=em.find(Panier.class, pa.getId());
-		pa1.setProduit(p);
-		em.persist(p1); 
-		p1.getIdProduit();
+//		Panier pa1=em.find(Panier.class, pa.getId());
+//		pa1.setProduit(p);
+//		em.persist(p1); 
+//		p1.getIdProduit();
 		
 	}
 
 	@Override
 	public void supprimerProduitPanierDao(Produit p, Panier pa) {
-		Categorie c=getCategorie(idCat);
-		p.setCategorie(c);
+//		Categorie c=getCategorie(idCat);
+//		p.setCategorie(c);
 		em.persist(p); 
 		p.getIdProduit();
 
@@ -80,8 +80,8 @@ public class ClientDaoImpl implements IClientDao {
 	public Commande enregisterCommandeDao(Panier pa, Client c) {
 		em.persist(c);
 		Commande commande = new Commande();
-		commande.setClient(c);
-		commande.setLigneCommandes(pa);
+//		commande.setClient(c);
+//		commande.setLigneCommandes(pa);
 		em.persist(commande);
 
 		return commande;

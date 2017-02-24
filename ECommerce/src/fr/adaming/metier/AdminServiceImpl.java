@@ -25,8 +25,8 @@ public class AdminServiceImpl implements IAdminService{
 	}
 	
 	@Override
-	public void ajouterAdminService(Produit p) {
-		adminDao.ajouterAdminDao(p);
+	public void ajouterAdminService(Produit p, int fk_categorie) {
+		adminDao.ajouterAdminDao(p,fk_categorie);
 		
 	}
 

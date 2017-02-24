@@ -33,21 +33,29 @@ public class AdminDaoImpl implements IAdminDao {
 	}
 
 	@Override
-	public void ajouterAdminDao(Produit p) {
+	public void ajouterAdminDao(Produit p, int fk_categorie) {
+		Categorie c = em.find(Categorie.class, fk_categorie);
+		p.setCategorie_associe(c);
 		em.persist(p);
 
 	}
 
 	@Override
 	public void supprimerAdminDao(Produit p) {
-		Produit p1 = em.find(Produit.class, p.getId());
-		em.remove(p);
-
+		Produit p1 = em.find(Produit.class, 2);
+		Categorie c=em.find(Categorie.class, 1);
+		p1.setCategorie_associe(c);
+		System.out.println("kjjjjjjjjjjjj" + p1);
+		try {
+			em.remove(p1);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		System.out.println("coucou");
 	}
 
 	@Override
 	public void mofifierAdminDao(Produit p) {
-
 		em.persist(p);
 
 	}

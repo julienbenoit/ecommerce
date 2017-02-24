@@ -11,7 +11,7 @@ import fr.adaming.entities.Produit;
 public interface IAdminDao {
 	public void ajouterAdminDao(Admin a);
 	public List<Produit> consulterAdminDao();
-	public void ajouterAdminDao(Produit p);
+	public void ajouterAdminDao(Produit p,int fk_categorie);
 	public void supprimerAdminDao(Produit p);
 	public void mofifierAdminDao(Produit p);
 	public List<Categorie> consulterCategorieAdminDao();

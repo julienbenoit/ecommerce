@@ -15,7 +15,7 @@ public interface IAdminService {
 	 * @param p
 	 */
 
-	public void ajouterAdminService(Produit p);
+	public void ajouterAdminService(Produit p, int fk_categorie);
 	
 	/**
 	 * This method delete the product from the table product

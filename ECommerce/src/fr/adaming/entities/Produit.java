@@ -72,6 +72,32 @@ public class Produit implements Serializable{
 		this.selectionne = selectionne;
 	}
 	
+	
+//	public Produit(long idProduit, String designation, String description, float prix, int quantite,
+//			boolean selectionne, Categorie categorie_associe) {
+//		super();
+//		this.idProduit = idProduit;
+//		this.designation = designation;
+//		this.description = description;
+//		this.prix = prix;
+//		this.quantite = quantite;
+//		this.selectionne = selectionne;
+//		this.categorie_associe = categorie_associe;
+//	}
+//	public Produit(int id, long idProduit, String designation, String description, float prix, int quantite,
+//			boolean selectionne, Categorie categorie_associe) {
+//		super();
+//		this.id = id;
+//		this.idProduit = idProduit;
+//		this.designation = designation;
+//		this.description = description;
+//		this.prix = prix;
+//		this.quantite = quantite;
+//		this.selectionne = selectionne;
+//		this.categorie_associe = categorie_associe;
+//	}
+	
+	
 	//====================Accesseurs==================================
 	public int getId() {
 		return id;

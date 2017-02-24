@@ -11,32 +11,34 @@
 
 
 
-
-<div align="center">
 <h:form>
-		<H1>Ecran de connexion</H1>
-		<h:panelGrid columns="3">
+<div align="center">
+
+		<h1>Ecran de connexion</h1>
+		<p:panelGrid columns="3">
 			Identifiant:
-			<h:inputText id="mail_id" value="#{adminMB.admin.nom}"
-				required="true" label="Mail"></h:inputText>
-			<h:message for="mail_id" style="color:red" />
+			<p:inputText id="mail_id" value="#{adminMB.admin.nom}"
+				required="true" label="Mail"></p:inputText>
+			<p:message for="mail_id" style="color:red" />
 
 			Password:
-			<h:inputText id="password_id"
+			<p:inputText id="password_id"
 				value="#{adminMB.admin.password}" required="true"
-				label="Password"></h:inputText>
-			<h:message for="password_id" style="color:red" />
-		</h:panelGrid>
+				label="Password"></p:inputText>
+			<p:message for="password_id" style="color:red" />
+		</p:panelGrid>
 		
 		
-		<h:commandButton value="ajouter" action="#{adminMB.connecter}" />
+		<p:commandButton value="connecters" action="#{adminMB.connecter}" />
 		<br/>		
 		<hr/>
 		<br/>	
-</h:form>
+
 
 		<a href="accueilClient.xhtml"><input type="button" value ="Je suis un utilisateur"/></a>
 </div>
+</h:form>
+
 
 </h:body>
 </html>

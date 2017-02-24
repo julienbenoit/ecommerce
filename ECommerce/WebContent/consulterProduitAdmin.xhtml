@@ -8,35 +8,35 @@ xmlns:p="http://primefaces.org/ui">
 	<title>Consulter les produits</title>
 </h:head>
 
-<body>
+<h:body>
 <h:form>
 Je suis dans le tableau des produits
-<p:dataTable var="produit" value="#{clientMB.produit}">
+<p:dataTable var="produit" value="#{adminMB.listeProduit}">
 
 	<p:column headerText="Indice">
-        <p:outputText value="#{clientMB.id}" />
+        <h:outputText value="#{produit.id}" />
     </p:column>
 
     <p:column headerText="Identifiant">
-        <p:outputText value="#{clientMB.idProduit}" />
+        <h:outputText value="#{produit.id_produit}" />
     </p:column>
     
      <p:column headerText="Nom">
-        <p:outputText value="#{clientMB.designation}" />
+        <h:outputText value="#{produit.designation}" />
     </p:column>
     
      <p:column headerText="Description">
-        <p:outputText value="#{clientMB.description}" />
+        <h:outputText value="#{produit.description}" />
     </p:column>
     <p:column headerText="Prix">
-        <p:outputText value="#{clientMB.prix}" />
+        <h:outputText value="#{produit.prix}" />
     </p:column>
     
     <p:column headerText="Quantité">
-        <p:outputText value="#{produit.quantite}" />
+        <h:outputText value="#{produit.quantite}" />
     </p:column>
     
 </p:dataTable>
 </h:form>
-</body>
+</h:body>
 </html>

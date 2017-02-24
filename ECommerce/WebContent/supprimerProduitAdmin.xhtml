@@ -8,22 +8,22 @@ xmlns:p="http://primefaces.org/ui">
 	<title>Supprimer Produit</title>
 </h:head>
 
-<body>
+<h:body>
 
 <H1>Supprimer un produit à la liste</H1>
 
 <h:form >
-	<p:panelGrid columns="3">
+	<h:panelGrid columns="3">
 				
-           <p:outputText value="Numero du produit :" />
-		<p:inputText value="#{clientMB.produit.id}" id="Id"
+           <h:outputText value="Numero du produit :" />
+		<h:inputText value="#{adminMB.categorie.id}" id="Id"
 			required="true"></h:inputText>
-		<p:message for="Id"></h:message>
+		<h:message for="Id"></h:message>
 		
-        <p:commandButton value="Supprimer un Produit" action="#{clientMB.supprimerProduitAdmin}" />
+        <h:commandButton value="Supprimer un Produit" action="#{adminMB.supprimerCategorie}" />
        
-     </p:panelGrid>
+     </h:panelGrid>
 </h:form>
-</body>
+</h:body>
 
 </html>

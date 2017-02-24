@@ -19,11 +19,15 @@ import fr.adaming.metier.IAdminService;
 @ManagedBean(name="adminMB")
 @ViewScoped
 public class AdminMB implements Serializable{
+	private static final long serialVersionUID = 1L;
 	
 	private Admin admin;
 	private Produit produit;
 	private Commande commande;
 	private Categorie categorie;
+//	private List<Categorie> listeCategorie;
+//	private List<Produit> listeProduit;
+	
 	@EJB
 	private IAdminService adminService;
 
@@ -32,6 +36,8 @@ public class AdminMB implements Serializable{
 		this.produit=new Produit();
 		this.commande=new Commande();
 		this.categorie=new Categorie();
+//		this.listeProduit = adminService.consulterAdminService();
+//		this.listeCategorie = adminService.consulterCategorieAdminService();
 	}
 
 	public Admin getAdmin() {
@@ -50,15 +56,41 @@ public class AdminMB implements Serializable{
 		this.adminService = adminService;
 	}
 	
-//------Methodes admin-----
+	
+	public Produit getProduit() {
+		return produit;
+	}
+
+	public void setProduit(Produit produit) {
+		this.produit = produit;
+	}
+
+	public Commande getCommande() {
+		return commande;
+	}
+
+	public void setCommande(Commande commande) {
+		this.commande = commande;
+	}
+
+	public Categorie getCategorie() {
+		return categorie;
+	}
+
+	public void setCategorie(Categorie categorie) {
+		this.categorie = categorie;
+	}
+
+	
+	//------Methodes admin-----
 	public String ajouter(){
 		adminService.ajouterAdminTestService(this.admin);
 		return "succes";
 		
 	}
-	public String ajouterProduit(){
-		adminService.ajouterAdminService(this.produit);
-		return "succes";
+	public void ajouterProduit(){
+		adminService.ajouterAdminService(this.produit, this.categorie.getId());
+//		return "succes";
 		
 	}
 	public String consulterProduit(){
@@ -67,9 +99,27 @@ public class AdminMB implements Serializable{
 	FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("productList", listeProduit);
 	return "login";
 	}
-	public String supprimerProduit(){
+	
+	
+//	public List<Categorie> getListeCategorie() {
+//		return listeCategorie;
+//	}
+//
+//	public void setListeCategorie(List<Categorie> listeCategorie) {
+//		this.listeCategorie = listeCategorie;
+//	}
+//
+//	public List<Produit> getListeProduit() {
+//		return listeProduit;
+//	}
+//
+//	public void setListeProduit(List<Produit> listeProduit) {
+//		this.listeProduit = listeProduit;
+//	}
+
+	public void supprimerProduit(){
 		adminService.supprimerAdminService(this.produit);
-		return "succes";
+//		return "succes";
 		
 	}
 	public String modifierProduit(){
@@ -96,7 +146,6 @@ public class AdminMB implements Serializable{
 	public String modifierCategorie(){
 		adminService.mofifierCategorieAdminService(this.categorie);
 		return "succes";
-		
 	}
 }
 
