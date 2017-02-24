@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf14878587970460" configfile="/ECommerce/WebContent/WEB-INF/faces-config.xml">
-  <nodes xsi:type="pageflow:PFPage" name="login.xhtml" id="pf14878620940110" referenceLink="//@navigationRule.0/@navigationCase.1/@toViewId|" outlinks="pf14878620940111 pf14878620940112" inlinks="pf14878620940112" path="/login.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="accueil.xhtml" id="pf14878620940123" referenceLink="//@navigationRule.1/@navigationCase.0/@toViewId|" inlinks="pf14878620940111 pf14878620940124" path="/login.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="*.xhtml" id="pf14878620940125" referenceLink="//@navigationRule.1/@fromViewId|" outlinks="pf14878620940124" path="/*.xhtml"/>
-  <links id="pf14878620940111" target="pf14878620940123" source="pf14878620940110" outcome="succes"/>
-  <links id="pf14878620940112" target="pf14878620940110" source="pf14878620940110" outcome="echec"/>
-  <links id="pf14878620940124" target="pf14878620940123" source="pf14878620940125" outcome="acceuil"/>
+  <nodes xsi:type="pageflow:PFPage" name="login.xhtml" x="122" y="178" id="pf14878620940110" referenceLink="//@navigationRule.0/@fromViewId|" outlinks="pf14879656647850 pf14879670131901" inlinks="pf14879656647850" path="/login.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="accueil.xhtml" x="122" y="562" id="pf14878620940123" referenceLink="//@navigationRule.1/@navigationCase.0/@toViewId|" path="/login.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="accueilAdmin.xhtml" id="pf14879670131912" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" inlinks="pf14879670131901" path="/accueilAdmin.xhtml"/>
+  <links id="pf14879656647850" target="pf14878620940110" source="pf14878620940110" outcome="echec">
+    <bendPoints d1Height="-66" d2Height="-66"/>
+    <bendPoints d1Width="-94" d1Height="-66" d2Width="-94" d2Height="-66"/>
+    <bendPoints d1Width="-94" d2Width="-94"/>
+  </links>
+  <links id="pf14879670131901" target="pf14879670131912" source="pf14878620940110" outcome="succes"/>
 </pageflow:Pageflow>

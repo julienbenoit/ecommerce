@@ -26,37 +26,28 @@ public class AdminDaoImpl implements IAdminDao {
 	@Override
 	public List<Produit> consulterAdminDao() {
 		String req = "SELECT p FROM Produit p ";
-
 		Query query = em.createQuery(req);
 		List<Produit> listeProduit = query.getResultList();
 		return listeProduit;
 	}
 
 	@Override
-	public void ajouterAdminDao(Produit p, int fk_categorie) {
+	public void ajouterAdminDao(Produit p1, int fk_categorie) {
 		Categorie c = em.find(Categorie.class, fk_categorie);
-		p.setCategorie_associe(c);
-		em.persist(p);
-
-	}
-
-	@Override
-	public void supprimerAdminDao(Produit p) {
-		Produit p1 = em.find(Produit.class, 2);
-		Categorie c=em.find(Categorie.class, 1);
 		p1.setCategorie_associe(c);
-		System.out.println("kjjjjjjjjjjjj" + p1);
-		try {
-			em.remove(p1);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		System.out.println("coucou");
+		em.persist(p1);
+
 	}
 
 	@Override
-	public void mofifierAdminDao(Produit p) {
-		em.persist(p);
+	public void supprimerAdminDao(Produit p2) {
+		Produit p3 = em.find(Produit.class, p2.getId());
+			em.remove(p3);
+			}
+	
+	@Override
+	public void mofifierAdminDao(Produit p4) {
+		em.merge(p4);
 
 	}
 
@@ -83,8 +74,29 @@ public class AdminDaoImpl implements IAdminDao {
 
 	@Override
 	public void mofifierCategorieAdminDao(Categorie c) {
-		em.persist(c);
+		em.merge(c);
 
 	}
+
+	@Override
+	public Admin isExist(Admin a) {
+
+		String req = "SELECT a FROM Admin a WHERE a.nom=:pNom AND a.password=:pMdp";
+		Query query = em.createQuery(req);
+		query.setParameter("pNom", a.getNom());
+		query.setParameter("pMdp", a.getPassword());
+	
+		List<Admin> listeAdmin = query.getResultList();
+		if (listeAdmin.size() != 0) {
+			Admin adminRetour = listeAdmin.get(0);
+			return adminRetour;
+
+		} else {
+			return null;
+		}
+	
+	}
+
+
 
 }

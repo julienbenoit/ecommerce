@@ -10,17 +10,17 @@ xmlns:p="http://primefaces.org/ui">
 
 <h:body>
 
-<H1>Supprimer un produit à la liste</H1>
+<H1>Supprimer une categorie a la liste</H1>
 
 <h:form >
 	<h:panelGrid columns="3">
 				
-           <h:outputText value="Numero du produit :" />
-		<h:inputText value="#{adminMB.produit.id}" id="Id"
+           <h:outputText value="Indice de la categorie :" />
+		<h:inputText value="#{adminMB.categorie.id}" id="Id"
 			required="true"></h:inputText>
 		<h:message for="Id"></h:message>
 		
-        <h:commandButton value="Supprimer un Produit" action="#{adminMB.supprimerProduit}" />
+        <h:commandButton value="Supprimer un categorie" action="#{adminMB.supprimerCategorie}" />
        
      </h:panelGrid>
 </h:form>

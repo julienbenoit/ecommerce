@@ -10,45 +10,45 @@ xmlns:p="http://primefaces.org/ui">
 
 <body>
 
-<H1>Ajouter un produit � la liste</H1>
+<h1>Modifier un produit  la liste</h1>
 
 <h:form >
-	<p:panelGrid columns="3">
+	<h:panelGrid columns="3">
 				
-       	<p:outputText value="Indice du produit :" />
-		<h:inputText value="#{clientMB.produit.id}" id="Id"
+       	<h:outputText value="Indice du produit :" />
+		<h:inputText value="#{adminMB.produit.id}" id="Id"
 			required="true"></h:inputText>
-		<p:message for="Id"></p:message>
+		<h:message for="Id"></h:message>
 		
-           <p:outputText value="Numero du produit :" />
-		<p:inputText value="#{clientMB.produit.idProduit}" id="numeroId"
-			required="true"></h:inputText>
-		<p:message for="numeroId"></p:message>
-		
-		<p:outputText value="D�signation :" />
-		<p:inputText value="#{clientMB.produit.designation}" id="designationId"
-			required="true"></h:inputText>
-		<p:message for="designationId"></p:message>
-		
-		<p:outputText value="Description :" />
-		<p:inputText value="#{clientMB.produit.description}" id="descriptionId"
+           <h:outputText value="Numero du produit :" />
+		<h:inputText value="#{adminMB.produit.idProduit}" id="numeroId"
 			required="true"/>
-		<p:message for="descriptionId"></p:message>
+		<h:message for="numeroId"></h:message>
+		
+		<h:outputText value="Designetion :" />
+		<h:inputText value="#{adminMB.produit.designation}" id="designationId"
+			required="true"></h:inputText>
+		<h:message for="designationId"></h:message>
+		
+		<h:outputText value="Description :" />
+		<h:inputText value="#{adminMB.produit.description}" id="descriptionId"
+			required="true"/>
+		<h:message for="descriptionId"></h:message>
 		 
-		<p:outputText value="Mail :" />
-		<p:inputText value="#{clientMB.produit.prix}" id="prixsId"
+		<h:outputText value="Prix :" />
+		<h:inputText value="#{adminMB.produit.prix}" id="prixsId"
 			required="true"></h:inputText>
-		<p:message for="prixsId"></p:message>
+		<h:message for="prixsId"></h:message>
 		
-		<p:outputText value="Mail :" />
-		<p:inputText value="#{clientMB.produit.quantite}" id="quantiteId"
+		<h:outputText value="Quantite :" />
+		<h:inputText value="#{adminMB.produit.quantite}" id="quantiteId"
 			required="true"></h:inputText>
-		<p:message for="quantiteId"></p:message>
+		<h:message for="quantiteId"></h:message>
 		
 		
-        <p:commandButton value="Modifier un Produit" action="#{clientMB.modifierProduitAdmin}" />
+        <h:commandButton value="Modifier un Produit" action="#{adminMB.modifierProduit}" />
        
-     </p:panelGrid>
+     </h:panelGrid>
 </h:form>
 </body>
 

@@ -72,6 +72,12 @@ public class AdminServiceImpl implements IAdminService{
 		
 	}
 
+	@Override
+	public Admin isExistService(Admin a) {
+		return adminDao.isExist(a);
+		 
+	}
+
 
 
 	

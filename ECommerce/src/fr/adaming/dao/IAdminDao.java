@@ -18,5 +18,7 @@ public interface IAdminDao {
 	public void ajouterCategorieAdminDao(Categorie c);
 	public void supprimerCategorieAdminDao(Categorie c);
 	public void mofifierCategorieAdminDao(Categorie c);
-	
+	//pour connection
+	public Admin isExist(Admin a);
+
 }

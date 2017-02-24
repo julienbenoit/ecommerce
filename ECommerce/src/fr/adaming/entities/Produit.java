@@ -37,7 +37,7 @@ public class Produit implements Serializable{
 	
 	//===================Attributs associés==============================
 	@ManyToOne 
-	@JoinColumn(name= "fk_categorie" , referencedColumnName = "id_categorie")
+	@JoinColumn(name= "fk_categorie")
 	private Categorie categorie_associe;
 	
 //	@OneToMany(mappedBy ="produit_associe", fetch =FetchType.EAGER, cascade = {CascadeType.ALL})

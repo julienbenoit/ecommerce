@@ -31,7 +31,7 @@ public class Categorie implements Serializable{
 	
 	
 	//===================Attributs associés==============================
-	@OneToMany(mappedBy="categorie_associe", fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
+	@OneToMany(mappedBy="categorie_associe")
 	private List<Produit> listeProduit;
 	
 	

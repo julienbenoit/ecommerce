@@ -45,6 +45,8 @@ public interface IAdminService {
 	public void supprimerCategorieAdminService(Categorie c);
 	public void mofifierCategorieAdminService(Categorie c);
 	
+	//connection
+	public Admin isExistService(Admin a);
 	
 	//Methode test
 	public void ajouterAdminTestService(Admin a);

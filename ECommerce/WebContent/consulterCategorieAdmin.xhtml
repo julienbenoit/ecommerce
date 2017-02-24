@@ -11,33 +11,28 @@ xmlns:p="http://primefaces.org/ui">
 <h:body>
 <h:form>
 Je suis dans le tableau des produits
-<p:dataTable var="produit" value="#{sessionScope.productList}">
+<p:dataTable var="cat" value="#{sessionScope.categorieList}">
 
 	<p:column headerText="Indice">
-        <h:outputText value="#{produit.id}" />
+        <h:outputText value="#{cat.id}" />
     </p:column>
 
     <p:column headerText="Identifiant">
-        <h:outputText value="#{produit.idProduit}" />
+        <h:outputText value="#{cat.idCategorie}" />
     </p:column>
     
-     <p:column headerText="Nom">
-        <h:outputText value="#{produit.designation}" />
-    </p:column>
     
      <p:column headerText="Description">
         <h:outputText value="#{produit.description}" />
     </p:column>
-    <p:column headerText="Prix">
-        <h:outputText value="#{produit.prix}" />
+    <p:column headerText="Nom">
+        <h:outputText value="#{produit.nomCategorie}" />
     </p:column>
     
-    <p:column headerText="Quantité">
-        <h:outputText value="#{produit.quantite}" />
-    </p:column>
+ 
     
 </p:dataTable>
-<h:commandButton value="consulter" action="#{adminMB.consulterProduit}" />
+<h:commandButton value="consulter" action="#{adminMB.consulterCategorie}" />
 			<h:messages style="color:red"/>
 </h:form>
 </h:body>

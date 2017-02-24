@@ -6,7 +6,9 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.ejb.EJB;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 
@@ -17,7 +19,7 @@ import fr.adaming.entities.Produit;
 import fr.adaming.metier.IAdminService;
 
 @ManagedBean(name="adminMB")
-@ViewScoped
+@SessionScoped
 public class AdminMB implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
@@ -25,8 +27,7 @@ public class AdminMB implements Serializable{
 	private Produit produit;
 	private Commande commande;
 	private Categorie categorie;
-//	private List<Categorie> listeCategorie;
-//	private List<Produit> listeProduit;
+
 	
 	@EJB
 	private IAdminService adminService;
@@ -36,8 +37,7 @@ public class AdminMB implements Serializable{
 		this.produit=new Produit();
 		this.commande=new Commande();
 		this.categorie=new Categorie();
-//		this.listeProduit = adminService.consulterAdminService();
-//		this.listeCategorie = adminService.consulterCategorieAdminService();
+
 	}
 
 	public Admin getAdmin() {
@@ -88,43 +88,27 @@ public class AdminMB implements Serializable{
 		return "succes";
 		
 	}
-	public void ajouterProduit(){
+	public String ajouterProduit(){
 		adminService.ajouterAdminService(this.produit, this.categorie.getId());
-//		return "succes";
+		return "succes";
 		
 	}
 	public String consulterProduit(){
 	List<Produit> listeProduit=	adminService.consulterAdminService();
 	
 	FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("productList", listeProduit);
-	return "login";
+	return "/consulterProduitAdmin.xhtml";
 	}
 	
 	
-//	public List<Categorie> getListeCategorie() {
-//		return listeCategorie;
-//	}
-//
-//	public void setListeCategorie(List<Categorie> listeCategorie) {
-//		this.listeCategorie = listeCategorie;
-//	}
-//
-//	public List<Produit> getListeProduit() {
-//		return listeProduit;
-//	}
-//
-//	public void setListeProduit(List<Produit> listeProduit) {
-//		this.listeProduit = listeProduit;
-//	}
-
-	public void supprimerProduit(){
+	public String supprimerProduit(){
 		adminService.supprimerAdminService(this.produit);
-//		return "succes";
+		return "succes";
 		
 	}
 	public String modifierProduit(){
 		adminService.mofifierAdminService(this.produit);
-		return "succes";
+		return "/consulterProduitAdmin.xhtml";
 		
 	}
 	public String ajouterCategorie(){
@@ -135,18 +119,39 @@ public class AdminMB implements Serializable{
 	public String consulterCategorie(){
 	List<Categorie> listeCategorie=	adminService.consulterCategorieAdminService();
 	
-	FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("productList", listeCategorie);
-	return "login";
+	FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("categorieList", listeCategorie);
+	return "/consulterCategorieAdmin.xhtml";
 	}
 	public String supprimerCategorie(){
 		adminService.supprimerCategorieAdminService(this.categorie);
-		return "succes";
+		return "/consulterCategorieAdmin.xhtml";
 		
 	}
 	public String modifierCategorie(){
 		adminService.mofifierCategorieAdminService(this.categorie);
-		return "succes";
+		return "/consulterCategorieAdmin.xhtml";
 	}
+	
+	public String connecter() {
+		Admin adminR = adminService.isExistService(this.admin);
+
+		if (adminR != null) {
+			
+			FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("agentSes", adminR);
+
+			return "succes";
+		} else {
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Les infos sont erronées"));
+			return "echec";
+		}
+
+	}
+
+	public String seDeconnecter() {
+		FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
+		return "/login.xhtml?faces-redirect=true";
+	}
+
 }
 
 

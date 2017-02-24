@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:f="http://java.sun.com/jsf/core"
+xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>Accueil admin</title>
+</h:head>
+
+<body>
+
+<h1>Modifier une categorie de  la liste</h1>
+
+<h:form >
+	<h:panelGrid columns="3">
+				
+       	<h:outputText value="Indice du categorie :" />
+		<h:inputText value="#{adminMB.categorie.id}" id="Id"
+			required="true"></h:inputText>
+		<h:message for="Id"></h:message>
+		
+           <h:outputText value="Numero du produit :" />
+		<h:inputText value="#{adminMB.categorie.idCategorie}" id="numeroId"
+			required="true"/>
+		<h:message for="numeroId"></h:message>
+		
+		
+		
+		<h:outputText value="Description :" />
+		<h:inputText value="#{adminMB.categorie.description}" id="descriptionId"
+			required="true"/>
+		<h:message for="descriptionId"></h:message>
+		 
+	
+		
+		<h:outputText value="Nom categorie :" />
+		<h:inputText value="#{adminMB.categorie.nomCategorie}" id="categoId"
+			required="true"></h:inputText>
+		<h:message for="categoId"></h:message>
+		
+		
+        <h:commandButton value="Modifier un categorie" action="#{adminMB.modifierProduit}" />
+       
+     </h:panelGrid>
+</h:form>
+</body>
+
+</html>
