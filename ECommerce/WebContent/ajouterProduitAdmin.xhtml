@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:f="http://java.sun.com/jsf/core"
+xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>Accueil admin</title>
+</h:head>
+
+<body>
+
+<H1>Ajouter un produit à la liste</H1>
+
+<h:form >
+	<p:panelGrid columns="3">
+				
+           <p:outputText value="Numero du produit :" />
+		<p:inputText value="#{clientMB.produit.idProduit}" id="numeroId"
+			required="true"></p:inputText>
+		<p:message for="numeroId"></p:message>
+		
+		<p:outputText value="Désignation :" />
+		<p:inputText value="#{clientMB.produit.designation}" id="designationId"
+			required="true"></p:inputText>
+		<p:message for="designationId"></p:message>
+		
+		<p:outputText value="Description :" />
+		<p:calendar value="#{clientMB.produit.description}" id="descriptionId"
+			required="true" pattern="dd-MM-yyyy"/>
+		<p:message for="descriptionId"></p:message>
+		 
+		
+		<p:outputText value="Mail :" />
+		<p:inputText value="#{clientMB.produit.prix}" id="prixsId"
+			required="true"></p:inputText>
+		<p:message for="prixsId"></p:message>
+		
+		<p:outputText value="Mail :" />
+		<p:inputText value="#{clientMB.produit.quantite}" id="quantiteId"
+			required="true"></p:inputText>
+		<p:message for="quantiteId"></p:message>
+		
+		
+        <p:commandButton value="Ajouter un Produit" action="#{clientMB.ajouterProduitAdmin}" />
+       
+     </p:panelGrid>
+</h:form>
+</body>
+
+</html>

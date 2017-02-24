@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:f="http://java.sun.com/jsf/core"
+xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>Consulter la catégories</title>
+</h:head>
+
+<body>
+<h:form>
+Je suis dans le tableau des catégories
+<h:dataTable var="categorie" value="#{CategorieMB.categorie}">
+
+	<h:column headerText="Numero">
+        <h:outputText value="#{categorie.id}" />
+    </h:column>
+    <h:column headerText="Indice">
+        <h:outputText value="#{categorie.idCategorie}" />
+    </h:column>
+    
+     <h:column headerText="Nom">
+        <h:outputText value="#{categorie.nomCategorie}" />
+    </h:column>
+    
+     <h:column headerText="Description">
+        <h:outputText value="#{categorie.description}" />
+    </h:column>
+
+</h:dataTable>
+</h:form>
+</body>
+</html>
