@@ -5,6 +5,7 @@ import java.util.List;
 import javax.ejb.Local;
 
 import fr.adaming.entities.Admin;
+import fr.adaming.entities.Categorie;
 import fr.adaming.entities.Produit;
 
 @Local
@@ -38,6 +39,12 @@ public interface IAdminService {
 	 */
 	public List<Produit> consulterAdminService();
 
+	//categorie
+	List<Categorie> consulterCategorieAdminService();
+	public void ajouterCategorieAdminService(Categorie c);
+	public void supprimerCategorieAdminService(Categorie c);
+	public void mofifierCategorieAdminService(Categorie c);
+	
 	
 	//Methode test
 	public void ajouterAdminTestService(Admin a);

@@ -8,6 +8,7 @@ import javax.ejb.Stateless;
 
 import fr.adaming.dao.IAdminDao;
 import fr.adaming.entities.Admin;
+import fr.adaming.entities.Categorie;
 import fr.adaming.entities.Produit;
 
 
@@ -25,26 +26,50 @@ public class AdminServiceImpl implements IAdminService{
 	
 	@Override
 	public void ajouterAdminService(Produit p) {
-		// TODO Auto-generated method stub
+		adminDao.ajouterAdminDao(p);
 		
 	}
 
 	@Override
 	public void supprimerAdminService(Produit p) {
-		// TODO Auto-generated method stub
+		adminDao.supprimerAdminDao(p);
 		
 	}
 
 	@Override
 	public void mofifierAdminService(Produit p) {
-		// TODO Auto-generated method stub
+	adminDao.mofifierAdminDao(p);
 		
 	}
 
 	@Override
 	public List<Produit> consulterAdminService() {
-		// TODO Auto-generated method stub
-		return null;
+		List<Produit> listeProduit=adminDao.consulterAdminDao();
+		return listeProduit;
+	}
+
+	@Override
+	public List<Categorie> consulterCategorieAdminService() {
+		List<Categorie> listeCategorie=adminDao.consulterCategorieAdminDao();
+		return listeCategorie;
+	}
+
+	@Override
+	public void ajouterCategorieAdminService(Categorie c) {
+		adminDao.ajouterCategorieAdminDao(c);
+		
+	}
+
+	@Override
+	public void supprimerCategorieAdminService(Categorie c) {
+		adminDao.supprimerCategorieAdminDao(c);
+		
+	}
+
+	@Override
+	public void mofifierCategorieAdminService(Categorie c) {
+		adminDao.mofifierCategorieAdminDao(c);
+		
 	}
 
 
