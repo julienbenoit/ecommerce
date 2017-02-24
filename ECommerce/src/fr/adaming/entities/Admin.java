@@ -27,7 +27,7 @@ public class Admin implements Serializable{
 	public Admin() {
 		super();
 	}
-	
+	 
 	public Admin(String identifiant, String password, String nom) {
 		super();
 		this.identifiant = identifiant;
