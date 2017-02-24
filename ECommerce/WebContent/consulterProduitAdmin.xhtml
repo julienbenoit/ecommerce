@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:f="http://java.sun.com/jsf/core"
+xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>Consulter les produits</title>
+</h:head>
+
+<body>
+<h:form>
+Je suis dans le tableau des produits
+<p:dataTable var="produit" value="#{clientMB.produit}">
+
+	<p:column headerText="Indice">
+        <p:outputText value="#{clientMB.id}" />
+    </p:column>
+
+    <p:column headerText="Identifiant">
+        <p:outputText value="#{clientMB.idProduit}" />
+    </p:column>
+    
+     <p:column headerText="Nom">
+        <p:outputText value="#{clientMB.designation}" />
+    </p:column>
+    
+     <p:column headerText="Description">
+        <p:outputText value="#{clientMB.description}" />
+    </p:column>
+    <p:column headerText="Prix">
+        <p:outputText value="#{clientMB.prix}" />
+    </p:column>
+    
+    <p:column headerText="Quantité">
+        <p:outputText value="#{produit.quantite}" />
+    </p:column>
+    
+</p:dataTable>
+</h:form>
+</body>
+</html>
