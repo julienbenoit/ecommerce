@@ -1,24 +1,38 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-xmlns:h="http://java.sun.com/jsf/html"
-xmlns:f="http://java.sun.com/jsf/core"
-xmlns:p="http://primefaces.org/ui">
+<!DOCTYPE html >
 
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets" 
+	xmlns:p="http://primefaces.org/ui"> 	<!-- Declaration des NameSpaces -->
+ 
 <h:head>
-	<title>Accueil client</title>
+	<title></title>
+    <link rel="stylesheet" href ="./styleClient.css"/>
+    <link rel = "styleSheet" type = "text/css" href = "bootstrap.css" media="all" />
+    <script src="jquery-3.1.1.js"></script>
+    <script src="styleClient.js"></script>
 </h:head>
 
 <body>
-<h1>Accueil</h1>
 
-	    <p:menuitem value="Consulter les catégories" url="consulterAllCat.xhtml" />
-	    <p:menuitem value="Consulter les produits d'une catégorie" url="consulterCat.xhtml" />
-	    <p:menuitem value="Consulter les produits du panier" url="consulterPanier.xhtml" />
+	<!-- Bloc header -->
+	<ui:include src="headerClient.xhtml"/>
+	<!--Bloc menu-->
+	<ui:include src="menuClient.xhtml"/>
+	<div class = "bodyClient" >
+	
+<!-- 	    <p:menuitem value="Consulter les catégories" url="consulterAllCat.xhtml" /> -->
+<!-- 	    <p:menuitem value="Consulter les produits d'une catégorie" url="consulterCat.xhtml" /> -->
+<!-- 	    <p:menuitem value="Consulter les produits du panier" url="consulterPanier.xhtml" /> -->
 	    
-	    <p:menuitem value="Chercher par mots clés" url="rechercheMotCle.xhtml" />
-	    <p:menuitem value="Ajouter un produit au panier" url="ajouterPanier.xhtml" />
-	    <p:menuitem value="Supprimer un produit au panier" url="supprimerPanier.xhtml" />
-	    <p:menuitem value="Enregistrer la commande" url="enregistrerPanier.xhtml" />
-	   
+<!-- 	    <p:menuitem value="Chercher par mots clés" url="rechercheMotCle.xhtml" /> -->
+<!-- 	    <p:menuitem value="Ajouter un produit au panier" url="ajouterPanier.xhtml" /> -->
+<!-- 	    <p:menuitem value="Supprimer un produit au panier" url="supprimerPanier.xhtml" /> -->
+<!-- 	    <p:menuitem value="Enregistrer la commande" url="enregistrerPanier.xhtml" /> -->
+	   	
+   	</div>
+    <!-- Bloc footer -->
+	<ui:include src="footerClient.xhtml"/>
 </body>
 </html>

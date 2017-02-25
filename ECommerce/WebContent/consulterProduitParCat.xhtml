@@ -1,16 +1,30 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-xmlns:h="http://java.sun.com/jsf/html"
-xmlns:f="http://java.sun.com/jsf/core"
-xmlns:p="http://primefaces.org/ui">
+<!DOCTYPE html >
 
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"> 	<!-- Declaration des NameSpaces -->
+ 
 <h:head>
-	<title>Consulter les catégories</title>
+	<title></title>
+    <link rel="stylesheet" href ="./styleClient.css"/>
+    <link rel = "styleSheet" type = "text/css" href = "bootstrap.css" media="all" />
+    <script src="jquery-3.1.1.js"></script>
+    <script src="styleClient.js"></script>
 </h:head>
+
+
 <h:body>
-<h:form>
-Je suis dans le tableau des produits par cetegorie
-<p:dataTable var="produit" value="#{sessionScope.productList}">
+
+	<!-- Bloc header -->
+	<ui:include src="headerClient.xhtml"/>
+	<!--Bloc menu-->
+	<ui:include src="menuClient.xhtml"/>
+	<div class = "bodyClient" >
+	
+	<h:form>
+	<p:dataTable var="produit" value="#{sessionScope.productList}">
 
 	<p:column headerText="Indice">
         <h:outputText value="#{produit.id}" />
@@ -36,12 +50,15 @@ Je suis dans le tableau des produits par cetegorie
     </p:column>
     
 </p:dataTable>
-Id categorie
-				<h:inputText id="mail_id" value="#{clientMB.commande.id}"
-					required="true" label="Mail"></h:inputText>
-				<h:message for="mail_id" style="color:red" />
-<h:commandButton value="consulter" action="#{clientMB.consulterProduitParCategorie}" />
-			<h:messages style="color:red"/>
-</h:form>
+
+	<h:inputText id="mail_id" value="#{clientMB.commande.id}" required="true" label="Mail"></h:inputText>
+	<h:message for="mail_id" style="color:red" />
+	<h:commandButton value="consulter" action="#{clientMB.consulterProduitParCategorie}" />
+	<h:messages style="color:red"/>
+	</h:form>
+   	</div>
+    <!-- Bloc footer -->
+	<ui:include src="footerClient.xhtml"/>
+
 </h:body>
 </html>

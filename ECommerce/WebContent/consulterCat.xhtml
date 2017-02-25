@@ -1,17 +1,28 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-xmlns:h="http://java.sun.com/jsf/html"
-xmlns:f="http://java.sun.com/jsf/core"
-xmlns:p="http://primefaces.org/ui">
+<!DOCTYPE html >
 
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"> 	<!-- Declaration des NameSpaces -->
+ 
 <h:head>
-	<title>Consulter la catégories</title>
+	<title></title>
+    <link rel="stylesheet" href ="./styleClient.css"/>
+    <link rel = "styleSheet" type = "text/css" href = "bootstrap.css" media="all" />
+    <script src="jquery-3.1.1.js"></script>
+    <script src="styleClient.js"></script>
 </h:head>
 
-<body>
-<h:form>
-Je suis dans le tableau des catégories
-<h:dataTable var="categorie" value="#{sessionScope.categorieList}">
+<h:body>
+	<!-- Bloc header -->
+	<ui:include src="headerClient.xhtml"/>
+	<!--Bloc menu-->
+	<ui:include src="menuClient.xhtml"/>
+	<div class = "bodyClient" >
+	<h:form>
+
+	<h:dataTable var="categorie" value="#{sessionScope.categorieList}">
 
 	<h:column headerText="Numero">
         <h:outputText value="#{categorie.id}" />
@@ -28,9 +39,13 @@ Je suis dans le tableau des catégories
         <h:outputText value="#{categorie.description}" />
     </h:column>
 
-</h:dataTable>
-<h:commandButton value="consulter" action="#{clientMB.consulterCategorie}" />
-			<h:messages style="color:red"/>
-</h:form>
-</body>
+	</h:dataTable>
+	<h:commandButton value="consulter" action="#{clientMB.consulterCategorie}" />
+		<h:messages style="color:red"/>
+	</h:form>
+   	</div>
+    <!-- Bloc footer -->
+	<ui:include src="footerClient.xhtml"/>
+
+</h:body>
 </html>
