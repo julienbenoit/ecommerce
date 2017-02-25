@@ -1,5 +1,6 @@
 package fr.adaming.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.ejb.Stateless;
@@ -10,6 +11,7 @@ import javax.persistence.Query;
 import fr.adaming.entities.Categorie;
 import fr.adaming.entities.Client;
 import fr.adaming.entities.Commande;
+import fr.adaming.entities.LigneCommande;
 import fr.adaming.entities.Panier;
 import fr.adaming.entities.Produit;
 
@@ -18,7 +20,8 @@ public class ClientDaoImpl implements IClientDao {
 
 	@PersistenceContext(unitName = "ECommerce")
 	EntityManager em;
-
+	
+	
 	@Override
 	public List<Categorie> consulterCategorieClientDao() {
 		String req = "SELECT c FROM Categorie c ";
@@ -60,28 +63,50 @@ public class ClientDaoImpl implements IClientDao {
 
 	@Override
 	public void ajouterProduitPanierDao(Produit p, Panier pa) {
-//		Panier pa1=em.find(Panier.class, pa.getId());
-//		pa1.setProduit(p);
-//		em.persist(p1); 
-//		p1.getIdProduit();
+		Produit p1=em.find(Produit.class, p.getId());
+
+		
+		LigneCommande lignecommande = new LigneCommande();
+		lignecommande.setQuantite(p1.getQuantite());
+		lignecommande.setPrix(p1.getPrix());
+		em.persist(lignecommande);
+		
+		List<LigneCommande> listeLignecommande=new ArrayList<>();
+		listeLignecommande.add(lignecommande);
+	
+		
+	p1.setListeLigneCommande(listeLignecommande);
+
+	
+
+		em.merge(p1); 
+
 		
 	}
 
 	@Override
 	public void supprimerProduitPanierDao(Produit p, Panier pa) {
-//		Categorie c=getCategorie(idCat);
-//		p.setCategorie(c);
-		em.persist(p); 
-		p.getIdProduit();
+		
+		LigneCommande ligneCommande=em.find(LigneCommande.class, p.getId());
+		em.persist(ligneCommande); 
+	
 
 	}
 
 	@Override
-	public Commande enregisterCommandeDao(Panier pa, Client c) {
-		em.persist(c);
+	public Commande enregisterCommandeDao(int id_c, Client c) {
+		
+	em.persist(c);
+	
 		Commande commande = new Commande();
-//		commande.setClient(c);
-//		commande.setLigneCommandes(pa);
+		commande.setClient_associe(c);
+		LigneCommande ligneCommande=em.find(LigneCommande.class, id_c);
+	List<LigneCommande> listeLigneCommande= new ArrayList<>();
+	listeLigneCommande.add(ligneCommande);
+		commande.setListeLigneCommande(listeLigneCommande);
+		
+		
+	
 		em.persist(commande);
 
 		return commande;

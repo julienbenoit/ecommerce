@@ -122,6 +122,9 @@ public class AdminMB implements Serializable{
 	FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("categorieList", listeCategorie);
 	return "/consulterCategorieAdmin.xhtml";
 	}
+	
+	
+	
 	public String supprimerCategorie(){
 		adminService.supprimerCategorieAdminService(this.categorie);
 		return "/consulterCategorieAdmin.xhtml";

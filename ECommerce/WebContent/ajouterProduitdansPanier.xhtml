@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:f="http://java.sun.com/jsf/core"
+xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>Accueil admin</title>
+</h:head>
+
+<h:body>
+
+<H1>Ajouter un produit à la liste</H1>
+
+<h:form >
+	<h:panelGrid columns="3">
+				
+        <h:outputText value="Indice produit :" />
+		<h:inputText value="#{clientMB.produit.id}" id="numeroId"
+			required="true"></h:inputText>
+		<h:message for="numeroId"></h:message>
+		
+		
+		
+        <h:commandButton value="Ajouter un Produit" action="#{clientMB.ajouterProduitPanier}" />
+       
+     </h:panelGrid>
+</h:form>
+</h:body>
+
+</html>

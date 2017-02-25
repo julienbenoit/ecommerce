@@ -30,13 +30,13 @@ public class LigneCommande implements Serializable{
 
 	
 	//===================Attributs associés==============================
-//	@ManyToOne
-//	@JoinColumn(name = "fk_ligneCommande", referencedColumnName ="id_ligneCommande")
-//	private Produit produit_associe;
+	@ManyToOne
+	@JoinColumn(name = "fk_ligneCommande")
+	private Produit produit_associe;
 	
-//	@ManyToOne
-//	@JoinColumn(name = "fk_ligneCommande", referencedColumnName ="id_ligneCommande")
-//	private Commande commande_associe;
+	@ManyToOne
+	@JoinColumn(name = "fk_ligneCommande2")
+	private Commande commande_associe;
 	
 	
 	
@@ -75,12 +75,12 @@ public class LigneCommande implements Serializable{
 		this.prix = prix;
 	}
 
-//	public Produit getProduit_associe() {
-//		return produit_associe;
-//	}
-//	public void setProduit_associe(Produit produit_associe) {
-//		this.produit_associe = produit_associe;
-//	}
+	public Produit getProduit_associe() {
+		return produit_associe;
+	}
+	public void setProduit_associe(Produit produit_associe) {
+		this.produit_associe = produit_associe;
+	}
 	
 	public int getId() {
 		return id;
@@ -90,13 +90,13 @@ public class LigneCommande implements Serializable{
 		this.id = id;
 	}
 
-//	public Commande getCommande_associe() {
-//		return commande_associe;
-//	}
-//
-//	public void setCommande_associe(Commande commande_associe) {
-//		this.commande_associe = commande_associe;
-//	}
+	public Commande getCommande_associe() {
+		return commande_associe;
+	}
+
+	public void setCommande_associe(Commande commande_associe) {
+		this.commande_associe = commande_associe;
+	}
 
 
 	//====================Redefine ToString==============================

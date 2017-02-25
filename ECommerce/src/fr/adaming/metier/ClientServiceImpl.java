@@ -48,8 +48,8 @@ public class ClientServiceImpl implements IClientService{
 	}
 
 	@Override
-	public Commande enregistrerCommandeService(Panier pa, Client c) {
-		Commande commande=clientDao.enregisterCommandeDao(pa, c);
+	public Commande enregistrerCommandeService(int id_c, Client c) {
+		Commande commande=clientDao.enregisterCommandeDao(id_c, c);
 		return null;
 	}
 

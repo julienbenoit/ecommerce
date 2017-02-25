@@ -18,7 +18,7 @@ public interface IClientDao {
 	public List<Produit> consulterProduitParMotCleDao(String cle);
 	public void ajouterProduitPanierDao(Produit p, Panier pa);
 	public void supprimerProduitPanierDao(Produit p, Panier pa);
-	public Commande enregisterCommandeDao(Panier pa, Client c);
+	public Commande enregisterCommandeDao(int id_c, Client c);
 	
 	
 }

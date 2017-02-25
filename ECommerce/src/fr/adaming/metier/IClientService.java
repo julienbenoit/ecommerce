@@ -59,7 +59,7 @@ public interface IClientService {
 	 * @param p is an object Panier, c is an object Commande
 	 * @return void 
 	 */
-	public Commande enregistrerCommandeService(Panier p, Client c);
+	public Commande enregistrerCommandeService(int id_c, Client c);
 	
 	public List<Produit> consulterProduitParMotCleService(String cle);
 }

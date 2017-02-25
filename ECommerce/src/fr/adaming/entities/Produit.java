@@ -40,8 +40,8 @@ public class Produit implements Serializable{
 	@JoinColumn(name= "fk_categorie")
 	private Categorie categorie_associe;
 	
-//	@OneToMany(mappedBy ="produit_associe", fetch =FetchType.EAGER, cascade = {CascadeType.ALL})
-//	private List<LigneCommande> listeLigneCommande;
+	@OneToMany(mappedBy ="produit_associe")
+	private List<LigneCommande> listeLigneCommande;
 	
 	
 	
@@ -73,29 +73,29 @@ public class Produit implements Serializable{
 	}
 	
 	
-//	public Produit(long idProduit, String designation, String description, float prix, int quantite,
-//			boolean selectionne, Categorie categorie_associe) {
-//		super();
-//		this.idProduit = idProduit;
-//		this.designation = designation;
-//		this.description = description;
-//		this.prix = prix;
-//		this.quantite = quantite;
-//		this.selectionne = selectionne;
-//		this.categorie_associe = categorie_associe;
-//	}
-//	public Produit(int id, long idProduit, String designation, String description, float prix, int quantite,
-//			boolean selectionne, Categorie categorie_associe) {
-//		super();
-//		this.id = id;
-//		this.idProduit = idProduit;
-//		this.designation = designation;
-//		this.description = description;
-//		this.prix = prix;
-//		this.quantite = quantite;
-//		this.selectionne = selectionne;
-//		this.categorie_associe = categorie_associe;
-//	}
+	public Produit(long idProduit, String designation, String description, float prix, int quantite,
+			boolean selectionne, Categorie categorie_associe) {
+		super();
+		this.idProduit = idProduit;
+		this.designation = designation;
+		this.description = description;
+		this.prix = prix;
+		this.quantite = quantite;
+		this.selectionne = selectionne;
+		this.categorie_associe = categorie_associe;
+	}
+	public Produit(int id, long idProduit, String designation, String description, float prix, int quantite,
+			boolean selectionne, Categorie categorie_associe) {
+		super();
+		this.id = id;
+		this.idProduit = idProduit;
+		this.designation = designation;
+		this.description = description;
+		this.prix = prix;
+		this.quantite = quantite;
+		this.selectionne = selectionne;
+		this.categorie_associe = categorie_associe;
+	}
 	
 	
 	//====================Accesseurs==================================
@@ -148,6 +148,13 @@ public class Produit implements Serializable{
 		this.categorie_associe = categorie_associe;
 	}
 	
+	
+	public List<LigneCommande> getListeLigneCommande() {
+		return listeLigneCommande;
+	}
+	public void setListeLigneCommande(List<LigneCommande> listeLigneCommande) {
+		this.listeLigneCommande = listeLigneCommande;
+	}
 	//====================Redefine ToString==============================
 	@Override
 	public String toString() {

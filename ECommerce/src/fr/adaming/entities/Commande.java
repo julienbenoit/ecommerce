@@ -32,12 +32,13 @@ public class Commande implements Serializable{
 	
 	
 	//===================Attributs associés==============================
-//	@ManyToOne
-//	@JoinColumn(name = "fk_client" , referencedColumnName="id_client")
-//	private Client client_associe;
+	@ManyToOne
+	@JoinColumn(name = "fk_client")
+	private Client client_associe;
 	
-//	@OneToMany(mappedBy = "commande_associe", fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
-//	private List<LigneCommande> listeLigneCommande;
+	@OneToMany
+	@JoinColumn(name = "fk_idcommande")
+	private List<LigneCommande> listeLigneCommande;
 	
 	
 	//===================Constructeurs==============================
@@ -84,13 +85,22 @@ public class Commande implements Serializable{
 	}
 
 	
-//	public Client getClient_associe() {
-//		return client_associe;
-//	}
-//
-//	public void setClient_associe(Client client_associe) {
-//		this.client_associe = client_associe;
-//	}
+	public Client getClient_associe() {
+		return client_associe;
+	}
+
+	public void setClient_associe(Client client_associe) {
+		this.client_associe = client_associe;
+	}
+	
+
+	public List<LigneCommande> getListeLigneCommande() {
+		return listeLigneCommande;
+	}
+
+	public void setListeLigneCommande(List<LigneCommande> listeLigneCommande) {
+		this.listeLigneCommande = listeLigneCommande;
+	}
 
 	//===================Redefine toString==============================
 	@Override

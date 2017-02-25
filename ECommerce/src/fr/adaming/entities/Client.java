@@ -33,8 +33,8 @@ public class Client implements Serializable{
 	
 	
 	//===================Attributs associés==============================
-//	@OneToMany(mappedBy = "client_associe" , fetch = FetchType.EAGER,cascade= { CascadeType.ALL} )
-//	List<Commande> listeCommande; 
+	@OneToMany(mappedBy = "client_associe" )
+	List<Commande> listeCommande; 
 	
 	
 	
@@ -114,13 +114,13 @@ public class Client implements Serializable{
 		this.tel = tel;
 	}
 	
-//	public List<Commande> getListeCommande() {
-//		return listeCommande;
-//	}
-//
-//	public void setListeCommande(List<Commande> listeCommande) {
-//		this.listeCommande = listeCommande;
-//	}
+	public List<Commande> getListeCommande() {
+		return listeCommande;
+	}
+
+	public void setListeCommande(List<Commande> listeCommande) {
+		this.listeCommande = listeCommande;
+	}
 
 	//===================Redefine ToString==============================
 	@Override

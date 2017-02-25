@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:f="http://java.sun.com/jsf/core"
+xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>Consulter les catégories</title>
+</h:head>
+<h:body>
+<h:form>
+Je suis dans le tableau des produits par cetegorie
+<p:dataTable var="produit" value="#{sessionScope.productList}">
+
+	<p:column headerText="Indice">
+        <h:outputText value="#{produit.id}" />
+    </p:column>
+
+    <p:column headerText="Identifiant">
+        <h:outputText value="#{produit.idProduit}" />
+    </p:column>
+    
+     <p:column headerText="Nom">
+        <h:outputText value="#{produit.designation}" />
+    </p:column>
+    
+     <p:column headerText="Description">
+        <h:outputText value="#{produit.description}" />
+    </p:column>
+    <p:column headerText="Prix">
+        <h:outputText value="#{produit.prix}" />
+    </p:column>
+    
+    <p:column headerText="Quantité">
+        <h:outputText value="#{produit.quantite}" />
+    </p:column>
+    
+</p:dataTable>
+Id categorie
+				<h:inputText id="mail_id" value="#{clientMB.commande.id}"
+					required="true" label="Mail"></h:inputText>
+				<h:message for="mail_id" style="color:red" />
+<h:commandButton value="consulter" action="#{clientMB.consulterProduitParCategorie}" />
+			<h:messages style="color:red"/>
+</h:form>
+</h:body>
+</html>

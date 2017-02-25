@@ -11,7 +11,7 @@ xmlns:p="http://primefaces.org/ui">
 <body>
 <h:form>
 Je suis dans le tableau des catégories
-<h:dataTable var="categorie" value="#{CategorieMB.categorie}">
+<h:dataTable var="categorie" value="#{sessionScope.categorieList}">
 
 	<h:column headerText="Numero">
         <h:outputText value="#{categorie.id}" />
@@ -29,6 +29,8 @@ Je suis dans le tableau des catégories
     </h:column>
 
 </h:dataTable>
+<h:commandButton value="consulter" action="#{clientMB.consulterCategorie}" />
+			<h:messages style="color:red"/>
 </h:form>
 </body>
 </html>
