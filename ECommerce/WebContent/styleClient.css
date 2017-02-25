@@ -1,0 +1,58 @@
+.headerClient{
+    background-color: darkgrey;
+    width: 1500px;
+    height: 150px;
+    padding-top: 20px;
+    border-bottom-style: solid;
+    border-bottom-color: #dde1e3;
+    box-shadow: 0 0 5px 5px grey;
+}
+
+.menuClient{
+    position: absolute;
+    background-color: #dde1e3;
+    margin-top: 0px;
+    margin-left: 0px;
+    width: 200px;
+    height: 500px;
+    padding-top: 10px;
+    padding-left: 0px;
+}
+
+.bodyClient{
+    position: absolute;
+    padding-top: 10px;
+    padding-left: 10px;
+    margin-left: 200px;
+    margin-top: 0px;
+    width: 1330px;
+    height: 500px;
+}
+
+.footerClient{
+    background-color: darkgrey;
+    width: 1500px;
+    margin-top: 500px;
+    height: 50px;
+    border-top-style: solid;
+    border-top-color: #dde1e3;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+
+.boutonMenu{
+    position: center;
+    cursor: pointer;
+    width: 200px;
+    height: 40px;
+/*     font-size: 18px; */
+    color: white;
+    text-align: center;
+    background-color: gray;
+    border-bottom-style: solid;
+    border-bottom-color: darkslateblue;
+    border-bottom-right-radius: 0px;
+    padding-top: 5px;
+    box-shadow: 5px 5px 5px 0 grey;
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE html >
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"> 	<!-- Declaration des NameSpaces -->
+ 
+<h:head>
+	<title></title>
+    <link rel="stylesheet" href ="./styleClient.css"/>
+    <link rel = "styleSheet" type = "text/css" href = "bootstrap.css" media="all" />
+    <script src="jquery-3.1.1.js"></script>
+    <script src="styleClient.js"></script>
+</h:head>
+
+<!--Bloc menu-->
+<div class = "menuClient">
+
+
+	 <a href="ajouterProduitdansPanier.xhtml"><input class = "boutonMenu" type="button" value ="Ajouter le produit dans panier"/></a>
+	 <a href="consulterCat.xhtml"><input class = "boutonMenu" type="button" value ="Consulter les produits d'une catégorie"/></a>
+	 <a href="consulterPanier.xhtml"><input class = "boutonMenu" type="button" value ="Consulter les produits du panier"/></a>	 
+	 <a href="consulterProduitParCat.xhtml"><input class = "boutonMenu" type="button" value ="Consulter produit par catégorie"/></a>
+	 <a href="consulterProduitParMotCle.xhtml"><input class = "boutonMenu" type="button" value ="Rechercher produit par mot clé"/></a>
+	 <a href="consulterProduitParSelection.xhtml"><input class = "boutonMenu" type="button" value ="Consulter produit de la sélection"/></a>
+	 <a href="enregistrerCommandeClient.xhtml"><input class = "boutonMenu" type="button" value ="Enregistrer la commande"/></a>
+	 <br/>
+	 <br/>
+	 <a href="login.xhtml"><input class = "boutonMenu" type="button" value ="Sortir du magasin"/></a>
+	 
+<!-- 	<h:form>  -->
+<!--  	    <p:menuitem value="Consulter les catégories" class = "boutonMenu" url="consulterAllCat.xhtml"/> -->
+<!-- 	    <p:menuitem value="Consulter les produits d'une catégorie" class = "boutonMenu" url="consulterCat.xhtml"/> -->
+<!-- 	    <p:menuitem value="Consulter les produits du panier" class = "boutonMenu" url="consulterPanier.xhtml" /> -->
+
+<!-- 	    <p:menuitem value="Chercher par mots clés" class = "boutonMenu" url="rechercheMotCle.xhtml" /> -->
+<!-- 	    <p:menuitem value="Ajouter un produit au panier" class = "boutonMenu" url="ajouterPanier.xhtml" /> -->
+<!-- 	    <p:menuitem value="Supprimer un produit au panier" class = "boutonMenu" url="supprimerPanier.xhtml" /> -->
+<!-- 	    <p:menuitem value="Enregistrer la commande" class = "boutonMenu" url="enregistrerPanier.xhtml" /> -->
+<!-- 	</h:form> -->
+</div>
+</html>
