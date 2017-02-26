@@ -22,24 +22,24 @@
 	<div class = "bodyClient" >
 	<h:form>
 
-	<h:dataTable var="categorie" value="#{sessionScope.categorieList}">
+	<p:dataTable var="categorie" value="#{sessionScope.categorieList}">
 
-	<h:column headerText="Numero">
+	<p:column headerText="Numero">
         <h:outputText value="#{categorie.id}" />
-    </h:column>
-    <h:column headerText="Indice">
+    </p:column>
+    <p:column headerText="Indice">
         <h:outputText value="#{categorie.idCategorie}" />
-    </h:column>
+    </p:column>
     
-     <h:column headerText="Nom">
+     <p:column headerText="Nom">
         <h:outputText value="#{categorie.nomCategorie}" />
-    </h:column>
+    </p:column>
     
-     <h:column headerText="Description">
+     <p:column headerText="Description">
         <h:outputText value="#{categorie.description}" />
-    </h:column>
+    </p:column>
 
-	</h:dataTable>
+	</p:dataTable>
 	<h:commandButton value="consulter" action="#{clientMB.consulterCategorie}" />
 		<h:messages style="color:red"/>
 	</h:form>

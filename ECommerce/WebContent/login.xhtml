@@ -26,12 +26,13 @@
 			</h:panelGrid>
 			
 			
-			<h:commandButton value="Se connecter admin" action="#{adminMB.connecter}" />
-			<h:messages style="color:red"/>
+			<h:commandButton id="bouton"  value="Se connecter admin" action="#{adminMB.connecter}" />
+			<h:messages for="bouton" style="color:red"/>
 	</h:form>
+	<h:form>
 			<h:commandButton value="Se connecter client" action="accueilClient" />
-			<h:messages style="color:red"/>
-
+			
+</h:form>
 	</div>
 
 
