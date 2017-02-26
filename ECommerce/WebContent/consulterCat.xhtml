@@ -22,26 +22,7 @@
 	<div class = "bodyClient" >
 	<h:form>
 
-	<p:dataTable var="categorie" value="#{sessionScope.categorieList}">
-
-	<p:column headerText="Numero">
-        <h:outputText value="#{categorie.id}" />
-    </p:column>
-    <p:column headerText="Indice">
-        <h:outputText value="#{categorie.idCategorie}" />
-    </p:column>
-    
-     <p:column headerText="Nom">
-        <h:outputText value="#{categorie.nomCategorie}" />
-    </p:column>
-    
-     <p:column headerText="Description">
-        <h:outputText value="#{categorie.description}" />
-    </p:column>
-
-	</p:dataTable>
-	<h:commandButton value="consulter" action="#{clientMB.consulterCategorie}" />
-		<h:messages style="color:red"/>
+	<h1>Produit supprimer dans panier</h1>
 	</h:form>
    	</div>
     <!-- Bloc footer -->

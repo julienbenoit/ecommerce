@@ -29,7 +29,10 @@
 		<h:inputText value="#{clientMB.produit.id}" id="numeroId"
 			required="true"></h:inputText>
 		<h:message for="numeroId"></h:message>
-		
+		 <h:outputText value="Quantite :" />
+		<h:inputText value="#{clientMB.produit.quantite}" id="quantiteId"
+			required="true"></h:inputText>
+		<h:message for="quantiteId"></h:message>
 		
 		
         <h:commandButton value="Ajouter un Produit" action="#{clientMB.ajouterProduitPanier}" />

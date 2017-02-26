@@ -92,7 +92,7 @@ public class ClientDaoImpl implements IClientDao {
 	 * @return void : this method is an action doesn't return anything
 	 */
 	@Override
-	public void ajouterProduitPanierDao(Produit p, Panier pa) {
+	public LigneCommande ajouterProduitPanierDao(Produit p, int quantite) {
 		Produit p1=em.find(Produit.class, p.getId());
 
 		
@@ -103,14 +103,10 @@ public class ClientDaoImpl implements IClientDao {
 		
 		List<LigneCommande> listeLignecommande=new ArrayList<>();
 		listeLignecommande.add(lignecommande);
-	
 		
-	p1.setListeLigneCommande(listeLignecommande);
-
-	
-
+	     p1.setListeLigneCommande(listeLignecommande);
 		em.merge(p1); 
-
+return lignecommande;
 		
 	}
 
@@ -120,10 +116,10 @@ public class ClientDaoImpl implements IClientDao {
 	 * @return void : this method is an action doesn't return anything
 	 */
 	@Override
-	public void supprimerProduitPanierDao(Produit p, Panier pa) {
+	public void supprimerProduitPanierDao(Produit p) {
 		
 		LigneCommande ligneCommande=em.find(LigneCommande.class, p.getId());
-		em.persist(ligneCommande); 
+		em.remove(ligneCommande); 
 	
 
 	}

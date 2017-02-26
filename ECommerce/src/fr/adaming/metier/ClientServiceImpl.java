@@ -10,6 +10,7 @@ import fr.adaming.dao.IClientDao;
 import fr.adaming.entities.Categorie;
 import fr.adaming.entities.Client;
 import fr.adaming.entities.Commande;
+import fr.adaming.entities.LigneCommande;
 import fr.adaming.entities.Panier;
 import fr.adaming.entities.Produit;
 
@@ -31,8 +32,8 @@ public class ClientServiceImpl implements IClientService{
 	 * @return void : this method is an action doesn't return anything
 	 */
 	@Override
-	public void ajouterProduitPanierService(Produit p, Panier pa) {
-		clientDao.ajouterProduitPanierDao(p, pa);
+	public LigneCommande ajouterProduitPanierService(Produit p, int quantite) {
+		return clientDao.ajouterProduitPanierDao(p, quantite);
 		
 	}
 	
@@ -42,8 +43,8 @@ public class ClientServiceImpl implements IClientService{
 	 * @return void : this method is an action doesn't return anything
 	 */
 	@Override
-	public void supprimerProduitPanierService(Produit p, Panier pa) {
-		clientDao.supprimerProduitPanierDao(p, pa);
+	public void supprimerProduitPanierService(Produit p) {
+		clientDao.supprimerProduitPanierDao(p);
 	}
 
 	/**

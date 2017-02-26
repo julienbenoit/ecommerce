@@ -11,6 +11,7 @@ import javax.faces.context.FacesContext;
 import fr.adaming.entities.Categorie;
 import fr.adaming.entities.Client;
 import fr.adaming.entities.Commande;
+import fr.adaming.entities.LigneCommande;
 import fr.adaming.entities.Panier;
 import fr.adaming.entities.Produit;
 import fr.adaming.metier.IClientService;
@@ -97,8 +98,10 @@ public class ClientMB implements Serializable{
 	 * @return String
 	 */
 	public String ajouterProduitPanier(){
-		clientService.ajouterProduitPanierService(this.produit, this.panier);
-		return "/ajouterProduitdansPanier.xhtml";
+		LigneCommande ligneCommande =clientService.ajouterProduitPanierService(this.produit, this.produit.getQuantite());
+
+		FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("panier", ligneCommande);
+		return "/consulterPanier.xhtml";
 		
 	}
 	
@@ -108,8 +111,9 @@ public class ClientMB implements Serializable{
 	 * @return String 
 	 */
 	public String enregistrerCommande(){
-		clientService.enregistrerCommandeService(this.commande.getId(), this.client);
-		return "/enregistrerCommandeClient.xhtml";
+		Commande commande=clientService.enregistrerCommandeService(this.commande.getId(), this.client);
+		FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("commande", commande);
+		return "/consulterCommande.xhtml";
 		
 	}
 	
@@ -143,8 +147,8 @@ public class ClientMB implements Serializable{
 	 * @return String
 	 */
 	public String supprimerProduitPanier(){
-		clientService.supprimerProduitPanierService(this.produit, this.panier);
-		return "succes";
+		clientService.supprimerProduitPanierService(this.produit);
+		return "/supprimer.xhtml";
 	}
 	
 	/**

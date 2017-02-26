@@ -6,6 +6,7 @@ import java.util.List;
 import fr.adaming.entities.Categorie;
 import fr.adaming.entities.Client;
 import fr.adaming.entities.Commande;
+import fr.adaming.entities.LigneCommande;
 import fr.adaming.entities.Panier;
 import fr.adaming.entities.Produit;
 
@@ -21,14 +22,14 @@ public interface IClientService {
 	 * @param p is an object Produit (long idProduit, String designation, String description,float prix, int quantite, boolean selectionne)
 	 * @return void : this method is an action doesn't return anything
 	 */
-	public void ajouterProduitPanierService(Produit p, Panier pa);
+	public LigneCommande ajouterProduitPanierService(Produit p, int quantite);
 	
 	/**
 	 * This method delete the product from the table command
 	 * @param p is an object Produit (long idProduit, String designation, String description,float prix, int quantite, boolean selectionne)
 	 * @return void : this method is an action doesn't return anything
 	 */
-	public void supprimerProduitPanierService(Produit p, Panier pa);
+	public void supprimerProduitPanierService(Produit p);
 	
 	/**
 	 * This method update the product from the table command

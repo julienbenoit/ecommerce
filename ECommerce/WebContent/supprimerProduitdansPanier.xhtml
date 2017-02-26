@@ -14,35 +14,30 @@
     <script src="styleClient.js"></script>
 </h:head>
 
-<body>
+<h:body>
 	<!-- Bloc header -->
-	<ui:include src="headerClient.xhtml"/>
+	<ui:include src="headerAdmin.xhtml"/>
 	<!--Bloc menu-->
-	<ui:include src="menuClient.xhtml"/>
-	
+	<ui:include src="menuAdmin.xhtml"/>
 	<div class = "bodyClient" >
-		<p>Liste Ligne Commande</p>
-		<p:dataTable var="cat" value="#{sessionScope.panier}">
+	<p>Supprimer une categorie a la liste</p>
 
-	<p:column headerText="Indice">
-        <h:outputText value="#{cat.id}" />
-    </p:column>
-
-    <p:column headerText="Quantite">
-        <h:outputText value="#{cat.quantite}" />
-    </p:column>
-    
-    
-     <p:column headerText="Prix">
-        <h:outputText value="#{cat.prix}" />
-    </p:column>
-
-    
-</p:dataTable>
-
-   	</div>
-   	
+<h:form >
+	<h:panelGrid columns="3">
+				
+           <h:outputText value="Indice du produit :" />
+		<h:inputText value="#{clientMB.produit.id}" id="Id"
+			required="true"></h:inputText>
+		<h:message for="Id"></h:message>
+		
+        <h:commandButton value="Supprimer un produit du panier" action="#{clientMB.supprimerProduitPanier}" />
+       
+     </h:panelGrid>
+	</h:form>
+	</div>
+	
     <!-- Bloc footer -->
 	<ui:include src="footerClient.xhtml"/>
-</body>
+</h:body>
+
 </html>

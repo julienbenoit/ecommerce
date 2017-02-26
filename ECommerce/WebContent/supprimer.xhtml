@@ -14,35 +14,38 @@
     <script src="styleClient.js"></script>
 </h:head>
 
-<body>
+<h:body>
 	<!-- Bloc header -->
 	<ui:include src="headerClient.xhtml"/>
 	<!--Bloc menu-->
 	<ui:include src="menuClient.xhtml"/>
-	
 	<div class = "bodyClient" >
-		<p>Liste Ligne Commande</p>
-		<p:dataTable var="cat" value="#{sessionScope.panier}">
+	<h:form>
 
-	<p:column headerText="Indice">
-        <h:outputText value="#{cat.id}" />
+	<p:dataTable var="categorie" value="#{sessionScope.categorieList}">
+
+	<p:column headerText="Numero">
+        <h:outputText value="#{categorie.id}" />
     </p:column>
-
-    <p:column headerText="Quantite">
-        <h:outputText value="#{cat.quantite}" />
+    <p:column headerText="Indice">
+        <h:outputText value="#{categorie.idCategorie}" />
     </p:column>
     
+     <p:column headerText="Nom">
+        <h:outputText value="#{categorie.nomCategorie}" />
+    </p:column>
     
-     <p:column headerText="Prix">
-        <h:outputText value="#{cat.prix}" />
+     <p:column headerText="Description">
+        <h:outputText value="#{categorie.description}" />
     </p:column>
 
-    
-</p:dataTable>
-
+	</p:dataTable>
+	<h:commandButton value="consulter" action="#{clientMB.consulterCategorie}" />
+		<h:messages style="color:red"/>
+	</h:form>
    	</div>
-   	
     <!-- Bloc footer -->
 	<ui:include src="footerClient.xhtml"/>
-</body>
+
+</h:body>
 </html>

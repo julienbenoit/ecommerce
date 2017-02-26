@@ -14,35 +14,37 @@
     <script src="styleClient.js"></script>
 </h:head>
 
-<body>
+<h:body>
 	<!-- Bloc header -->
 	<ui:include src="headerClient.xhtml"/>
 	<!--Bloc menu-->
 	<ui:include src="menuClient.xhtml"/>
-	
 	<div class = "bodyClient" >
-		<p>Liste Ligne Commande</p>
-		<p:dataTable var="cat" value="#{sessionScope.panier}">
+	<h:form>
+
+	<p:dataTable var="com" value="#{sessionScope.commande}">
 
 	<p:column headerText="Indice">
-        <h:outputText value="#{cat.id}" />
+        <h:outputText value="#{com.id}" />
     </p:column>
-
-    <p:column headerText="Quantite">
-        <h:outputText value="#{cat.quantite}" />
+    <p:column headerText="Numero">
+        <h:outputText value="#{com.idCommande}" />
     </p:column>
     
-    
-     <p:column headerText="Prix">
-        <h:outputText value="#{cat.prix}" />
+     <p:column headerText="Date">
+        <h:outputText value="#{com.dateCommande}" />
     </p:column>
-
+    <p:column headerText="Indice client">
+        <h:outputText value="#{com.client_associe.id}" />
+    </p:column>
     
-</p:dataTable>
 
+	</p:dataTable>
+
+	</h:form>
    	</div>
-   	
     <!-- Bloc footer -->
 	<ui:include src="footerClient.xhtml"/>
-</body>
+
+</h:body>
 </html>
