@@ -15,10 +15,19 @@ import fr.adaming.entities.Panier;
 import fr.adaming.entities.Produit;
 import fr.adaming.metier.IClientService;
 
+/**
+ * This class handle the link between ServiceClient package and the View module
+ * Methods defined here have a key word String as a return used as a navigation tool
+ * Methods defined here have a void as input parameters
+ * @author POUNCHOU Julien, BARBISAN Benoit
+ *
+ */
 @ManagedBean(name="clientMB")
 @SessionScoped
 public class ClientMB implements Serializable{
 	
+	
+	//===================Attributs managed Bean==============================
 	private Client client;// voir si besoin instantier d'autre produit
 	private Produit produit;
 	private Commande commande;
@@ -26,6 +35,8 @@ public class ClientMB implements Serializable{
 	@EJB
 	private IClientService clientService;
 
+	
+	//===================Constructeurs==============================
 	public ClientMB() {
 		this.produit=new Produit();
 		this.client=new Client();
@@ -33,6 +44,8 @@ public class ClientMB implements Serializable{
 		this.panier=new Panier();
 	}
 
+	
+	//===================Accesseurs==================================
 	public IClientService getClientService() {
 		return clientService;
 	}
@@ -74,49 +87,87 @@ public class ClientMB implements Serializable{
 		this.panier = panier;
 	}
 
-		//------Methodes Client-----
-		public String ajouterProduitPanier(){
-			clientService.ajouterProduitPanierService(this.produit, this.panier);
-			return "/ajouterProduitdansPanier.xhtml";
-			
-		}
+	//===================Méthodes managed bean================================
+	
+	
+	/**
+	 * This method add the product to the table command
+	 * 
+	 * @param void
+	 * @return String
+	 */
+	public String ajouterProduitPanier(){
+		clientService.ajouterProduitPanierService(this.produit, this.panier);
+		return "/ajouterProduitdansPanier.xhtml";
 		
-		public String enregistrerCommande(){
-			clientService.enregistrerCommandeService(this.commande.getId(), this.client);
-			return "/enregistrerCommandeClient.xhtml";
-			
-		}
+	}
+	
+	/**
+	 * This method saves the current commands in Panier 
+	 * @param void
+	 * @return String 
+	 */
+	public String enregistrerCommande(){
+		clientService.enregistrerCommandeService(this.commande.getId(), this.client);
+		return "/enregistrerCommandeClient.xhtml";
 		
-		
-		public String consulterProduitParCategorie(){
-		List<Produit> listeProduit=	clientService.consulterProduitParCategorieService(this.commande.getId());
+	}
+	
+	/**
+	 * This method get all the product from the table categorie
+	 * @param void
+	 * @return String
+	 */
+	public String consulterProduitParCategorie(){
+	List<Produit> listeProduit=	clientService.consulterProduitParCategorieService(this.commande.getId());
+	
+	FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("productList", listeProduit);
+	return "/consulterProduitParCat.xhtml";
+	}
+	
+	/**
+	 * This method allows the user to look for a product with key words research 
+	 * @param void
+	 * @return String 
+	 */
+	public String consulterProduitParMotCle(){
+		List<Produit> listeProduit=	clientService.consulterProduitParMotCleService(this.produit.getDescription());
 		
 		FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("productList", listeProduit);
-		return "/consulterProduitParCat.xhtml";
-		}
-		
-		public String consulterProduitParMotCle(){
-			List<Produit> listeProduit=	clientService.consulterProduitParMotCleService(this.produit.getDescription());
+		return "/consulterProduitParMotCle.xhtml";
+	}
+	
+	/**
+	 * This method delete the product from the table command
+	 * @param void
+	 * @return String
+	 */
+	public String supprimerProduitPanier(){
+		clientService.supprimerProduitPanierService(this.produit, this.panier);
+		return "succes";
+	}
+	
+	/**
+	 * This method get all the products selected by the client
+	 * @param void
+	 * @return List<Produit> : return the list of all categories objects
+	 */
+	public String consulterProduitSelectionner(){
+		List<Produit> listeProduit=	clientService.consulterProduitSelectionnerService();
 			
-			FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("productList", listeProduit);
-			return "/consulterProduitParMotCle.xhtml";
-			}
+		FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("productList", listeProduit);
+	return "login";
+	}
+	
+	/**
+	 * This method get all the categories from the table product
+	 * @param void
+	 * @return String
+	 */
+	public String consulterCategorie(){
+		List<Categorie> listeCategorie=	clientService.consulterCategorieClientService();
 		
-		public String supprimerProduitPanier(){
-			clientService.supprimerProduitPanierService(this.produit, this.panier);
-			return "succes";
-}
-		public String consulterProduitSelectionner(){
-			List<Produit> listeProduit=	clientService.consulterProduitSelectionnerService();
-			
-			FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("productList", listeProduit);
-			return "login";
-}
-		
-		public String consulterCategorie(){
-			List<Categorie> listeCategorie=	clientService.consulterCategorieClientService();
-			
-			FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("categorieList", listeCategorie);
-			return "/consulterCat.xhtml";
-			}
+		FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("categorieList", listeCategorie);
+	return "/consulterCat.xhtml";
+	}
 }

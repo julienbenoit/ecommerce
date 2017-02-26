@@ -18,11 +18,19 @@ import fr.adaming.entities.Commande;
 import fr.adaming.entities.Produit;
 import fr.adaming.metier.IAdminService;
 
+/**
+ * This class handle the link between ServiceAdmin package and the view module
+ * Methods defined here have a key word String as a return used as a navigation tool
+ * Methods defined here have a void as input parameters
+ * @author POUNCHOU Julien, BARBISAN Benoit
+ *
+ */
 @ManagedBean(name="adminMB")
 @SessionScoped
 public class AdminMB implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
+	//===================Attributs managed Bean==============================
 	private Admin admin;
 	private Produit produit;
 	private Commande commande;
@@ -32,6 +40,7 @@ public class AdminMB implements Serializable{
 	@EJB
 	private IAdminService adminService;
 
+	//===================Constructeurs==============================
 	public AdminMB() {
 		this.admin = new Admin();
 		this.produit=new Produit();
@@ -40,6 +49,7 @@ public class AdminMB implements Serializable{
 
 	}
 
+	//===================Accesseurs==================================
 	public Admin getAdmin() {
 		return admin;
 	}
@@ -82,40 +92,82 @@ public class AdminMB implements Serializable{
 	}
 
 	
-	//------Methodes admin-----
+	//===================Méthodes managed bean================================
+	
+	
+	/**
+	 * This test method add an admin to the table admins
+	 * @param void
+	 * @return void
+	 */
 	public String ajouter(){
 		adminService.ajouterAdminTestService(this.admin);
 		return "succes";
 		
 	}
+	
+	/**
+	 * This method add a product to the table product
+	 * @param void
+	 * @return String
+	 */
 	public String ajouterProduit(){
 		adminService.ajouterAdminService(this.produit, this.categorie.getId());
 		return "succes";
 		
 	}
+	
+	
+	/**
+	 * This method get all the products from the table product
+	 * @param void
+	 * @return String
+	 */
 	public String consulterProduit(){
 	List<Produit> listeProduit=	adminService.consulterAdminService();
-	
 	FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("productList", listeProduit);
 	return "/consulterProduitAdmin.xhtml";
 	}
 	
-	
+	/**
+	 * This method delete the product from the table product
+	 * @param void
+	 * @return String
+	 */
 	public String supprimerProduit(){
 		adminService.supprimerAdminService(this.produit);
 		return "succes";
 		
 	}
+	
+	/**
+	 * This method update the product from the table product
+	 * @param void
+ 	 * @return String
+	 */
 	public String modifierProduit(){
 		adminService.mofifierAdminService(this.produit);
 		return "/consulterProduitAdmin.xhtml";
 		
 	}
+	
+	/**
+	 * This method add a new categorie to the table categorie
+	 * @param void
+	 * @return String
+	 */
 	public String ajouterCategorie(){
 		adminService.ajouterCategorieAdminService(this.categorie);  
 		return "succes";
 		
 	}
+	
+	
+	/**
+	 * This method display all of the categories
+	 * @param void
+	 * @return String
+	 */
 	public String consulterCategorie(){
 	List<Categorie> listeCategorie=	adminService.consulterCategorieAdminService();
 	
@@ -124,17 +176,32 @@ public class AdminMB implements Serializable{
 	}
 	
 	
-	
+	/**
+	 * This method delete a categorie of the table categorie
+	 * @param void
+	 * @return String
+	 */
 	public String supprimerCategorie(){
 		adminService.supprimerCategorieAdminService(this.categorie);
 		return "/consulterCategorieAdmin.xhtml";
 		
 	}
+	
+	/**
+	 * This method update an existing categorie from the table categorie
+	 * @param void
+	 * @return String
+	 */
 	public String modifierCategorie(){
 		adminService.mofifierCategorieAdminService(this.categorie);
 		return "/consulterCategorieAdmin.xhtml";
 	}
 	
+	/**
+	 * This method create an admin session if enabled
+	 * @param void
+	 * @return String
+	 */
 	public String connecter() {
 		Admin adminR = adminService.isExistService(this.admin);
 
@@ -150,6 +217,11 @@ public class AdminMB implements Serializable{
 
 	}
 
+	/**
+	 * This method shuts down the current admin session
+	 * @param void
+	 * @return String
+	 */
 	public String seDeconnecter() {
 		FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
 		return "/login.xhtml?faces-redirect=true";

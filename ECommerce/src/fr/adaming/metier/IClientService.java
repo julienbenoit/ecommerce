@@ -2,12 +2,18 @@ package fr.adaming.metier;
 
 import java.util.List;
 
+
 import fr.adaming.entities.Categorie;
 import fr.adaming.entities.Client;
 import fr.adaming.entities.Commande;
 import fr.adaming.entities.Panier;
 import fr.adaming.entities.Produit;
 
+/**
+ * This interface implements the methods for the handling rules of the actor Client
+ * @author POUNCHOU Julien, BARBISAN benoit
+ *
+ */
 public interface IClientService {
 	/**
 	 * This method add the product to the table command
@@ -40,7 +46,7 @@ public interface IClientService {
 	public List<Categorie> consulterCategorieClientService();
 	
 	/**
-	 * This method get all the categories from the table product
+	 * This method get all the product from the table categorie
 	 * @param c is an object Categorie (long idCategorie, String nomCategorie, String description)
 	 * @return List<Categorie> : return the list of all categories objects
 	 */
@@ -61,5 +67,10 @@ public interface IClientService {
 	 */
 	public Commande enregistrerCommandeService(int id_c, Client c);
 	
+	/**
+	 * This method allows the user to look for a product with key words research 
+	 * @param cle : type String, the key word
+	 * @return List<Produit> 
+	 */
 	public List<Produit> consulterProduitParMotCleService(String cle);
 }

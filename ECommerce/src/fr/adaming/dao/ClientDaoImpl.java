@@ -15,13 +15,22 @@ import fr.adaming.entities.LigneCommande;
 import fr.adaming.entities.Panier;
 import fr.adaming.entities.Produit;
 
+/**
+ * This class implements the methods for the database connection of the actor Client
+ * @author POUNCHOU Julien, BARBISAN benoit
+ *
+ */
 @Stateless
 public class ClientDaoImpl implements IClientDao {
 
 	@PersistenceContext(unitName = "ECommerce")
 	EntityManager em;
 	
-	
+	/**
+	 * This method get all the categories from the table product
+	 * @param void
+	 * @return List<Categorie> : return the list of all categories objects
+	 */
 	@Override
 	public List<Categorie> consulterCategorieClientDao() {
 		String req = "SELECT c FROM Categorie c ";
@@ -31,6 +40,11 @@ public class ClientDaoImpl implements IClientDao {
 		return listeCategorie;
 	}
 
+	/**
+	 * This method get all the product from the table categorie
+	 * @param c is an object Categorie (long idCategorie, String nomCategorie, String description)
+	 * @return List<Categorie> : return the list of all categories objects
+	 */
 	@Override
 	public List<Produit> consulterProduitParCategorieDao(int id) {
 		String req = "SELECT p FROM Produit p WHERE p.categorie_associe.id:=a ";
@@ -41,6 +55,11 @@ public class ClientDaoImpl implements IClientDao {
 		return listeProduit;
 	}
 
+	/**
+	 * This method get all the products selected by the client
+	 * @param void
+	 * @return List<Produit> : return the list of all categories objects
+	 */
 	@Override
 	public List<Produit> consulterProduitSelectionnerDao() {
 		String req = "SELECT p FROM Produit p WHERE p.selection=true ";
@@ -51,6 +70,11 @@ public class ClientDaoImpl implements IClientDao {
 		return listeProduit;
 	}
 
+	/**
+	 * This method allows the user to look for a product with key words research 
+	 * @param cle : type String, the key word
+	 * @return List<Produit> 
+	 */
 	@Override
 	public List<Produit> consulterProduitParMotCleDao(String cle) {
 		String req = "SELECT p FROM Produit p WHERE p.designation like :a or p.description like:a ";
@@ -61,6 +85,12 @@ public class ClientDaoImpl implements IClientDao {
 		return listeProduit;
 	}
 
+	/**
+	 * This method add the product to the table command
+	 * 
+	 * @param p is an object Produit (long idProduit, String designation, String description,float prix, int quantite, boolean selectionne)
+	 * @return void : this method is an action doesn't return anything
+	 */
 	@Override
 	public void ajouterProduitPanierDao(Produit p, Panier pa) {
 		Produit p1=em.find(Produit.class, p.getId());
@@ -84,6 +114,11 @@ public class ClientDaoImpl implements IClientDao {
 		
 	}
 
+	/**
+	 * This method delete the product from the table command
+	 * @param p is an object Produit (long idProduit, String designation, String description,float prix, int quantite, boolean selectionne)
+	 * @return void : this method is an action doesn't return anything
+	 */
 	@Override
 	public void supprimerProduitPanierDao(Produit p, Panier pa) {
 		
@@ -93,6 +128,11 @@ public class ClientDaoImpl implements IClientDao {
 
 	}
 
+	/**
+	 * This method saves the current commands in Panier 
+	 * @param p is an object Panier, c is an object Commande
+	 * @return void 
+	 */
 	@Override
 	public Commande enregisterCommandeDao(int id_c, Client c) {
 		
