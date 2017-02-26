@@ -26,11 +26,12 @@
 	<h:panelGrid columns="3">
 				
            <h:outputText value="Indice du produit :" />
-		<h:inputText value="#{clientMB.produit.id}" id="Id"
+		<h:inputText class="form-control" value="#{clientMB.produit.id}" id="Id"
 			required="true"></h:inputText>
 		<h:message for="Id"></h:message>
-		
-        <h:commandButton value="Supprimer un produit du panier" action="#{clientMB.supprimerProduitPanier}" />
+		<hr/>
+<br/>
+        <h:commandButton class="btn btn-default" value="Supprimer un produit du panier" action="#{clientMB.supprimerProduitPanier}" />
        
      </h:panelGrid>
 	</h:form>

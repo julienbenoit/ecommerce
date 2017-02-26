@@ -51,9 +51,11 @@
     </p:column>
     
 </p:dataTable>
-				<h:inputText id="mail_id" value="#{clientMB.produit.selectionne}"
+				<h:inputText class ="form-control" id="mail_id" value="#{clientMB.produit.selectionne}"
 					required="true" label="Mail"></h:inputText>
 				<h:message for="mail_id" style="color:red" />
+<hr/>
+<br/>				
 <h:commandButton value="consulter" action="#{clientMB.consulterProduitSelectionner}" />
 			<h:messages style="color:red"/>
 </h:form>

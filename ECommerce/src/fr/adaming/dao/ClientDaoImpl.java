@@ -97,8 +97,9 @@ public class ClientDaoImpl implements IClientDao {
 
 		
 		LigneCommande lignecommande = new LigneCommande();
-		lignecommande.setQuantite(p1.getQuantite());
+		lignecommande.setQuantite(quantite);
 		lignecommande.setPrix(p1.getPrix());
+		lignecommande.setProduit_associe(p1);
 		em.persist(lignecommande);
 		
 		List<LigneCommande> listeLignecommande=new ArrayList<>();
@@ -126,7 +127,7 @@ return lignecommande;
 
 	/**
 	 * This method saves the current commands in Panier 
-	 * @param p is an object Panier, c is an object Commande
+	 * @param id_c integer refering to Client, c is an object Commande
 	 * @return void 
 	 */
 	@Override

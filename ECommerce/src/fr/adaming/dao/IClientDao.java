@@ -50,7 +50,7 @@ public interface IClientDao {
 	/**
 	 * This method add the product to the table command
 	 * 
-	 * @param p is an object Produit (long idProduit, String designation, String description,float prix, int quantite, boolean selectionne)
+	 * @param p is an object Produit, quantite is an integer for the quantity
 	 * @return void : this method is an action doesn't return anything
 	 */
 	public LigneCommande ajouterProduitPanierDao(Produit p, int quantite);
@@ -64,7 +64,7 @@ public interface IClientDao {
 	
 	/**
 	 * This method saves the current commands in Panier 
-	 * @param p is an object Panier, c is an object Commande
+	 * @param id_c reference for client, c is an object Commande
 	 * @return void 
 	 */
 	public Commande enregisterCommandeDao(int id_c, Client c);

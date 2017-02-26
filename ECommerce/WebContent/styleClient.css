@@ -1,10 +1,10 @@
 .headerClient{
-    background-color: darkgrey;
+    background-color: #c4c8d9;
     width: 1500px;
     height: 150px;
     padding-top: 20px;
     border-bottom-style: solid;
-    border-bottom-color: #dde1e3;
+    border-bottom-color: darkslateblue;
     box-shadow: 0 0 5px 5px grey;
 }
 
@@ -47,12 +47,27 @@
     width: 250px;
     height: 40px;
 /*     font-size: 18px; */
-    color: white;
+/*     color: white; */
     text-align: center;
-    background-color: gray;
+    background-color: white;
     border-bottom-style: solid;
     border-bottom-color: darkslateblue;
-    border-bottom-right-radius: 0px;
+/*     border-bottom-right-radius: 0px; */
+    border-radius: 5px;
     padding-top: 5px;
     box-shadow: 5px 5px 5px 0 grey;
 }
+
+p{
+	font-size: 18px;
+    color: grey;
+    font-weight: bold;
+}
+
+#admin{
+	background-color: #dfe3e0;
+	border-color: gray;
+	padding-bottom: 10px;
+	box-shadow: 5px 5px 5px 0 grey;
+}
+

@@ -26,35 +26,36 @@
 	<h:panelGrid columns="3">
 				
         <h:outputText value="Nom" />
-		<h:inputText value="#{clientMB.client.nomClient}" id="nomId"
+		<h:inputText class="form-control" value="#{clientMB.client.nomClient}" id="nomId"
 			required="true"></h:inputText>
 		<h:message for="nomId"></h:message>
 		
 		<h:outputText value="Mail :" />
-		<h:inputText value="#{clientMB.client.email}" id="mailId"
+		<h:inputText class="form-control" value="#{clientMB.client.email}" id="mailId"
 			required="true"></h:inputText>
 		<h:message for="mailId"></h:message>
 		
 		<h:outputText value="Numero Client :" />
-		<h:inputText value="#{clientMB.client.idClient}" id="numId"
+		<h:inputText class="form-control" value="#{clientMB.client.idClient}" id="numId"
 			required="true" />
 		<h:message for="numId"></h:message>
 		
 		
 		<h:outputText value="Id commande :" />
-		<h:inputText value="#{clientMB.commande.id}" id="Id2"
+		<h:inputText class="form-control" value="#{clientMB.commande.id}" id="Id2"
 			required="true" />
 		<h:message for="Id2"></h:message>
 		<h:outputText value="Numero commande :" />
-		<h:inputText value="#{clientMB.commande.idCommande}" id="Id"
+		<h:inputText class="form-control" value="#{clientMB.commande.idCommande}" id="Id"
 			required="true" />
 		<h:message for="Id"></h:message>
 		
 <!-- 		<h:outputText value="Date :" /> -->
 <!-- 		<h:inputText value="#{clientMB.commande.dateCommande}" id="dateId"/> -->
 <!-- 		<h:message for="dateId"></h:message> -->
-		
-        <h:commandButton value="Enregistrer commande" action="#{clientMB.enregistrerCommande}" />
+		<hr/>
+<br/>
+        <h:commandButton class="btn btn-default" value="Enregistrer commande" action="#{clientMB.enregistrerCommande}" />
        
      </h:panelGrid>
 </h:form>

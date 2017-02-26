@@ -27,21 +27,22 @@
 	<h:panelGrid columns="3">
 				
         <h:outputText value="Numero du categorie :" />
-		<h:inputText value="#{adminMB.categorie.idCategorie}" id="numeroId"
+		<h:inputText class="form-control" value="#{adminMB.categorie.idCategorie}" id="numeroId"
 			required="true"></h:inputText>
 		<h:message for="numeroId"></h:message>
 		
 		<h:outputText value="Description :" />
-		<h:inputText value="#{adminMB.categorie.description}" id="designationId"
+		<h:inputText class="form-control" value="#{adminMB.categorie.description}" id="designationId"
 			required="true"></h:inputText>
 		<h:message for="designationId"></h:message>
 		
 		<h:outputText value="Nom de la categorie :" />
-		<h:inputText value="#{adminMB.categorie.nomCategorie}" id="descriptionId"
+		<h:inputText class="form-control" value="#{adminMB.categorie.nomCategorie}" id="descriptionId"
 			required="true" />
 		<h:message for="descriptionId"></h:message>
-		
-        <h:commandButton value="Ajouter une categorie" action="#{adminMB.ajouterCategorie}" />
+		<hr/>
+		<br/>
+        <h:commandButton class="btn btn-default" value="Ajouter une categorie" action="#{adminMB.ajouterCategorie}" />
        
      </h:panelGrid>
      </h:form>

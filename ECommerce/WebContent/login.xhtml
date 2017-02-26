@@ -1,36 +1,48 @@
-<!DOCTYPE html>
+<!DOCTYPE html >
+
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:p="http://primefaces.org/ui">
-
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"> 	<!-- Declaration des NameSpaces -->
+ 
 <h:head>
-	<title>Ma Page de login</title>
+	<title></title>
+    <link rel="stylesheet" href ="./styleClient.css"/>
+    <link rel = "styleSheet" type = "text/css" href = "bootstrap.css" media="all" />
+    <script src="jquery-3.1.1.js"></script>
+    <script src="styleClient.js"></script>
 </h:head>
 
 <h:body>
-	<div align="center">
+	<div id = "admin" align="center" >
 		<h1>Page de login</h1>
 		<h:form>
 			<h:panelGrid columns="3">
 				Nom:
-				<h:inputText id="mail_id" value="#{adminMB.admin.nom}"
+				<h:inputText class="form-control" id="mail_id" value="#{adminMB.admin.nom}"
 					required="true" label="Mail"></h:inputText>
 				<h:message for="mail_id" style="color:red" />
 
 				Password:
-				<h:inputText id="password_id"
+				<h:inputText class="form-control" id="password_id"
 					value="#{adminMB.admin.password}" required="true"
+					placeholder="Password" type="password"
 					label="Password"></h:inputText>
 				<h:message for="password_id" style="color:red" />
 			</h:panelGrid>
+			<br/>
 			
-			
-			<h:commandButton id="bouton"  value="Se connecter admin" action="#{adminMB.connecter}" />
+			<h:commandButton class="btn btn-default" id="bouton"  value="Se connecter admin" action="#{adminMB.connecter}" />
 			<h:messages for="bouton" style="color:red"/>
 	</h:form>
+	
+	
 	<h:form>
-			<h:commandButton value="Se connecter client" action="accueilClient" />
+		<br/>
+		<hr/>
+		<br/>
+			<h:commandButton class="btn btn-default" value="Se connecter client" action="accueilClient" />
 			
 </h:form>
 	</div>
